@@ -35,6 +35,7 @@ public class MailServiceImplTest {
     public void sendAttachmentsMail() {
         String filePath1 = "d:\\learn\\zhangwenit\\src\\main\\resources\\static\\img\\ceshi.png";
         String filePath2 = "https://cdn.lepluslife.com/lepluslife/lepluslife.jpg";
+
         mailService.sendAttachmentsMail("793863709@qq.com", "主题：带附件的邮件", "有附件，请查收！", filePath1, filePath2);
     }
 
