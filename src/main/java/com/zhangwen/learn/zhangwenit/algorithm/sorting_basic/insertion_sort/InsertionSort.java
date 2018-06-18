@@ -42,7 +42,8 @@ public class InsertionSort {
     public static void main(String[] args) {
         // 测试排序算法辅助函数
         int n = 20000;
-        Integer[] arr = SortTestHelper.generateRandomArray(n, 0, 10000);
+//        Integer[] arr = SortTestHelper.generateRandomArray(n, 0, 10000);
+        Integer[] arr = SortTestHelper.generateNearlyOrderedArray(n, 1000);
         Integer[] arr2 = Arrays.copyOf(arr, arr.length);
         SortTestHelper.testSort("com.zhangwen.learn.zhangwenit.algorithm." +
                 "sorting_basic.selection_sort_generate_test_cases.SelectionSort", arr2);
