@@ -33,7 +33,9 @@ public class SelectionSort {
         // 测试排序算法辅助函数
         int n = 10000;
         Integer[] arr = SortTestHelper.generateRandomArray(n, 0, 10000);
-        SelectionSort.sort(arr);
-        SortTestHelper.printArray(arr);
+//        SelectionSort.sort(arr);
+//        SortTestHelper.printArray(arr);
+        SortTestHelper.testSort("com.zhangwen.learn.zhangwenit." +
+                "algorithm.sorting_basic.selection_sort_generate_test_cases.SelectionSort", arr);
     }
 }
