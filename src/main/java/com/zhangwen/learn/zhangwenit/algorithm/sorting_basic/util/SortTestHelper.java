@@ -1,4 +1,4 @@
-package com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.selection_sort_generate_test_cases;
+package com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.util;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -26,12 +26,30 @@ public class SortTestHelper {
         return arr;
     }
 
+    /**
+     * 打印数组
+     *
+     * @param arr
+     */
     public static void printArray(Object[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i]);
             System.out.print(' ');
         }
         System.out.println();
+    }
+
+    /**
+     * 交换数组中两个角标的值
+     *
+     * @param arr
+     * @param i
+     * @param j
+     */
+    public static void swap(Object[] arr, int i, int j) {
+        Object t = arr[i];
+        arr[i] = arr[j];
+        arr[j] = t;
     }
 
     /**

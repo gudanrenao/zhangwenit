@@ -1,5 +1,9 @@
 package com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.selection_sort_generate_test_cases;
 
+import com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.util.SortTestHelper;
+
+import java.util.Arrays;
+
 /**
  * 测试数据生成测试
  *
@@ -33,6 +37,7 @@ public class SelectionSort {
         // 测试排序算法辅助函数
         int n = 10000;
         Integer[] arr = SortTestHelper.generateRandomArray(n, 0, 10000);
+        Integer[] arr2 = Arrays.copyOf(arr, n);
 //        SelectionSort.sort(arr);
 //        SortTestHelper.printArray(arr);
         SortTestHelper.testSort("com.zhangwen.learn.zhangwenit." +
