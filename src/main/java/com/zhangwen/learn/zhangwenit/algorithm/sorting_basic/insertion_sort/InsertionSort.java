@@ -39,6 +39,24 @@ public class InsertionSort {
         }
     }
 
+    /**
+     * 对数组中该角标范围的元素进行插入排序
+     *
+     * @param arr
+     * @param l
+     * @param r
+     */
+    public static void insertSort(Comparable[] arr, int l, int r) {
+        for (int k = l + 1; k <= r; k++) {
+            Comparable e = arr[k];
+            int index = k;
+            for (; index > l && arr[index].compareTo(arr[index - 1]) < 0; index--) {
+                arr[index] = arr[index - 1];
+            }
+            arr[index] = e;
+        }
+    }
+
     public static void main(String[] args) {
         // 测试排序算法辅助函数
         int n = 20000;

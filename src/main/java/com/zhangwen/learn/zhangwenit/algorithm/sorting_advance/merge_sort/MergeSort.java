@@ -1,5 +1,6 @@
 package com.zhangwen.learn.zhangwenit.algorithm.sorting_advance.merge_sort;
 
+import com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.insertion_sort.InsertionSort;
 import com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.util.SortTestHelper;
 
 import java.util.Arrays;
@@ -29,12 +30,24 @@ public class MergeSort {
         if (l >= r) {
             return;
         }
+        //优化2；选择合适的数组长度进行插入排序,(在java中反而没有优化该项之前快！！！)
+//        if (r - l <= 15) {
+//            InsertionSort.insertSort(arr, l, r);
+//            return;
+//        }
+
         //否则，将数组一分为二，分别进行排序
-        int middle = (l + r) / 2;
-        mergeSort(arr, l, middle);
-        mergeSort(arr, middle + 1, r);
+        int mid = (l + r) / 2;
+        mergeSort(arr, l, mid);
+        mergeSort(arr, mid + 1, r);
         //归并排序
-        merge(arr, l, middle, r);
+        //优化1：判断arr[mid]是否小于arr[mid+1],如果小于，则不需要进行排序，因为
+        //arr[l]到arr[mid]，arr[mid+1]到arr[r]已经是有序的了
+        //这个优化对于近乎有序的数组排序性能提升明显
+        if (arr[mid].compareTo(arr[mid + 1]) > 0) {
+            merge(arr, l, mid, r);
+        }
+
     }
 
     /**
@@ -74,12 +87,14 @@ public class MergeSort {
 
     public static void main(String[] args) {
         int n = 500000;
-        Integer[] arr = SortTestHelper.generateRandomArray(n, 0, 10000);
+//        Integer[] arr = SortTestHelper.generateRandomArray(n, 0, 100000);
+        Integer[] arr = SortTestHelper.generateNearlyOrderedArray(1000000, 0);
         Integer[] arr2 = Arrays.copyOf(arr, arr.length);
         SortTestHelper.testSort("com.zhangwen.learn.zhangwenit.algorithm." +
                 "sorting_advance.merge_sort.MergeSort", arr);
-        SortTestHelper.testSort("com.zhangwen.learn.zhangwenit.algorithm." +
-                "sorting_basic.shell_sort.ShellSort", arr2);
+        SortTestHelper.printArray(arr, 10000);
+//        SortTestHelper.testSort("com.zhangwen.learn.zhangwenit.algorithm." +
+//                "sorting_basic.insertion_sort.InsertionSort", arr2);
 
     }
 

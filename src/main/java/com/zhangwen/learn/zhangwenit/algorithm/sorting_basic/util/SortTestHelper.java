@@ -55,7 +55,24 @@ public class SortTestHelper {
      * @param arr
      */
     public static void printArray(Object[] arr) {
-        for (int i = 0; i < arr.length; i++) {
+        for (Object anArr : arr) {
+            System.out.print(anArr);
+            System.out.print(' ');
+        }
+        System.out.println();
+    }
+
+    /**
+     * 打印前len个
+     *
+     * @param arr
+     * @param len
+     */
+    public static void printArray(Object[] arr, int len) {
+        if (len > arr.length) {
+            len = arr.length;
+        }
+        for (int i = 0; i < len; i++) {
             System.out.print(arr[i]);
             System.out.print(' ');
         }
