@@ -1,4 +1,4 @@
-package com.zhangwen.learn.zhangwenit.algorithm.sorting_basic;
+package com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.shell_sort;
 
 import com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.util.SortTestHelper;
 
@@ -62,7 +62,7 @@ public class ShellSort {
                 "sorting_basic.insertion_sort.InsertionSort", arr2);
         SortTestHelper.printArray(arr2);
         SortTestHelper.testSort("com.zhangwen.learn.zhangwenit.algorithm." +
-                "sorting_basic.ShellSort", arr);
+                "sorting_basic.shell_sort.ShellSort", arr);
         SortTestHelper.printArray(arr);
     }
 }

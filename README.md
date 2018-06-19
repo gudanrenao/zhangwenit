@@ -11,6 +11,8 @@ mail邮件相关代码
 * 插入排序
 * 冒泡排序
 * 希尔(shell)排序
+### 高级排序算法
+* 归并排序-Merge sort
 
 
 README.md语法
