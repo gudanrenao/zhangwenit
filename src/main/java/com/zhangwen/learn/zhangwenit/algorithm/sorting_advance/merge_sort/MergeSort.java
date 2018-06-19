@@ -43,7 +43,7 @@ public class MergeSort {
         //归并排序
         //优化1：判断arr[mid]是否小于arr[mid+1],如果小于，则不需要进行排序，因为
         //arr[l]到arr[mid]，arr[mid+1]到arr[r]已经是有序的了
-        //这个优化对于近乎有序的数组排序性能提升明显
+        //这个优化对于近乎有序的数组非常有效,但是对于一般情况,有一定的性能损失
         if (arr[mid].compareTo(arr[mid + 1]) > 0) {
             merge(arr, l, mid, r);
         }
