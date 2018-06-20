@@ -1,12 +1,11 @@
 package com.zhangwen.learn.zhangwenit.algorithm.sorting_advance.merge_sort;
 
-import com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.insertion_sort.InsertionSort;
 import com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.util.SortTestHelper;
 
 import java.util.Arrays;
 
 /**
- * 归并排序
+ * 归并排序(自顶向下)
  *
  * @author zhangwen at 2018-06-19 20:32
  **/
@@ -58,7 +57,7 @@ public class MergeSort {
      * @param mid
      * @param r
      */
-    private static void merge(Comparable[] arr, int l, int mid, int r) {
+    public static void merge(Comparable[] arr, int l, int mid, int r) {
         //首先将待排序数组copy
         Comparable[] aux = Arrays.copyOfRange(arr, l, r + 1);
         //记录前后两个部分的起始下标
