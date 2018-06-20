@@ -86,8 +86,8 @@ public class MergeSort {
 
     public static void main(String[] args) {
         int n = 500000;
-//        Integer[] arr = SortTestHelper.generateRandomArray(n, 0, 100000);
-        Integer[] arr = SortTestHelper.generateNearlyOrderedArray(1000000, 0);
+        Integer[] arr = SortTestHelper.generateRandomArray(n, 0, 100000);
+//        Integer[] arr = SortTestHelper.generateNearlyOrderedArray(1000000, 0);
         Integer[] arr2 = Arrays.copyOf(arr, arr.length);
         SortTestHelper.testSort("com.zhangwen.learn.zhangwenit.algorithm." +
                 "sorting_advance.merge_sort.MergeSort", arr);
