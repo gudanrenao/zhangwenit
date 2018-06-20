@@ -18,9 +18,6 @@ mail邮件相关代码
 
 README.md语法
 -------------
-### 图片
-
- ![测试图片](https://cdn.lepluslife.com/lepluslife/lepluslife.jpg)
 ### 代码块
 **一种制表符或四个空格，另一种反引号**
 
@@ -51,3 +48,6 @@ README.md语法
 * 第一条
 * 第二条
 * 第三条
+### 图片
+
+ ![测试图片](https://cdn.lepluslife.com/lepluslife/lepluslife.jpg)

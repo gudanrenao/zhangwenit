@@ -1,5 +1,6 @@
 package com.zhangwen.learn.zhangwenit.algorithm.sorting_advance.quick_sort;
 
+import com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.insertion_sort.InsertionSort;
 import com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.util.SortTestHelper;
 
 import java.util.Arrays;
@@ -27,6 +28,12 @@ public class QuickSort {
         if (l >= r) {
             return;
         }
+        //优化1：高级排序在递归到只包含少量元素的时候都可以使用插入排序进行优化
+//        if (r - l <= 15) {
+//            InsertionSort.insertSort(arr, l, r);
+//            return;
+//        }
+
         //获取快速排序后partition操作后的p的索引
         int p = partition(arr, l, r);
         quickSort(arr, l, p - 1);
@@ -42,6 +49,10 @@ public class QuickSort {
      * @return p
      */
     private static int partition(Comparable[] arr, int l, int r) {
+        //优化点2：对于一个近乎有序的数组，如果选择第一个元素作为比较point
+        //那么这个算法将会退化为o[n方]的时间复杂度
+        //为了解决这个问题，需要在数据中随机选择一个元素作为point,并将其与第一个元素交换
+        SortTestHelper.swap(arr, l, (int) (Math.random() * (r - l + 1) + l));
         //已第一个值为比较值
         Comparable e = arr[l];
         //比较点最后所在索引,关键：同时也是比较过程中比 e 小的数组的最后一个元素索引!!!
@@ -65,14 +76,15 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int n = 1000000;
-        Integer[] arr = SortTestHelper.generateRandomArray(n,0,1000000);
-        Integer[] arr2 = Arrays.copyOf(arr,n);
+        int n = 5000000;
+//        Integer[] arr = SortTestHelper.generateRandomArray(n, 0, 1000000);
+        Integer[] arr = SortTestHelper.generateNearlyOrderedArray(1000000, 0);
+        Integer[] arr2 = Arrays.copyOf(arr, arr.length);
         SortTestHelper.testSort("com.zhangwen.learn.zhangwenit.algorithm." +
-                "sorting_advance.quick_sort.QuickSort",arr);
-        SortTestHelper.printArray(arr,10000);
+                "sorting_advance.quick_sort.QuickSort", arr);
+        SortTestHelper.printArray(arr, 10000);
         SortTestHelper.testSort("com.zhangwen.learn.zhangwenit.algorithm." +
-                "sorting_advance.merge_sort.MergeSort",arr2);
-        SortTestHelper.printArray(arr2,10000);
+                "sorting_advance.merge_sort.MergeSort", arr2);
+        SortTestHelper.printArray(arr2, 10000);
     }
 }

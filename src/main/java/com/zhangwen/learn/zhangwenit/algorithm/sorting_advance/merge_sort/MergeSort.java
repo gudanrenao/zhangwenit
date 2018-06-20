@@ -1,11 +1,12 @@
 package com.zhangwen.learn.zhangwenit.algorithm.sorting_advance.merge_sort;
 
+import com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.insertion_sort.InsertionSort;
 import com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.util.SortTestHelper;
 
 import java.util.Arrays;
 
 /**
- * 归并排序(自顶向下)
+ * 归并排序(自顶向下)sort
  *
  * @author zhangwen at 2018-06-19 20:32
  **/
@@ -85,9 +86,9 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        int n = 500000;
-        Integer[] arr = SortTestHelper.generateRandomArray(n, 0, 100000);
-//        Integer[] arr = SortTestHelper.generateNearlyOrderedArray(1000000, 0);
+        int n = 1000000;
+//        Integer[] arr = SortTestHelper.generateRandomArray(n, 0, 100000);
+        Integer[] arr = SortTestHelper.generateNearlyOrderedArray(1000000, 0);
         Integer[] arr2 = Arrays.copyOf(arr, arr.length);
         SortTestHelper.testSort("com.zhangwen.learn.zhangwenit.algorithm." +
                 "sorting_advance.merge_sort.MergeSort", arr);

@@ -50,7 +50,8 @@ public class InsertionSort {
         for (int k = l + 1; k <= r; k++) {
             Comparable e = arr[k];
             int index = k;
-            for (; index > l && arr[index].compareTo(arr[index - 1]) < 0; index--) {
+            //注意：优化这里，每次比较的是e和循环的元素！！！
+            for (; index > l && e.compareTo(arr[index - 1]) < 0; index--) {
                 arr[index] = arr[index - 1];
             }
             arr[index] = e;
