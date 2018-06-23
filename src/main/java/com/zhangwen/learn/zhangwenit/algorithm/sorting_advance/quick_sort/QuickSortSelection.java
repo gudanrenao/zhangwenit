@@ -1,6 +1,6 @@
 package com.zhangwen.learn.zhangwenit.algorithm.sorting_advance.quick_sort;
 
-import com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.util.SortTestHelper;
+import com.zhangwen.learn.zhangwenit.algorithm.util.SortTestHelper;
 
 /**
  * 找出数组中第N小的元素

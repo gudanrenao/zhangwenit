@@ -1,4 +1,4 @@
-package com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.util;
+package com.zhangwen.learn.zhangwenit.algorithm.util;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

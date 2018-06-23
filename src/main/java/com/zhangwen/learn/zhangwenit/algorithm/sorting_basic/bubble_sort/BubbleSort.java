@@ -1,6 +1,6 @@
 package com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.bubble_sort;
 
-import com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.util.SortTestHelper;
+import com.zhangwen.learn.zhangwenit.algorithm.util.SortTestHelper;
 
 /**
  * 冒泡排序

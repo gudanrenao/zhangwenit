@@ -1,6 +1,6 @@
 package com.zhangwen.learn.zhangwenit.algorithm.sorting_advance.merge_sort;
 
-import com.zhangwen.learn.zhangwenit.algorithm.sorting_basic.util.SortTestHelper;
+import com.zhangwen.learn.zhangwenit.algorithm.util.SortTestHelper;
 
 import java.util.Arrays;
 
