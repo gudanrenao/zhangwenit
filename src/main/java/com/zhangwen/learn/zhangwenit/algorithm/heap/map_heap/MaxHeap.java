@@ -28,6 +28,21 @@ public class MaxHeap<Item extends Comparable> {
         this.capacity = capacity;
     }
 
+    public MaxHeap(Item[] arr) {
+        int h = arr.length;
+        data = (Item[]) new Comparable[h + 1];
+        capacity = h;
+        for (int i = 0; i < h; i++) {
+            data[i + 1] = arr[i];
+        }
+        //count需要先赋值，因为shiftDown中调用了count
+        count = h;
+        //将每个非叶子节点进行shiftDown操作
+        for (int j = count / 2; j >= 1; j--) {
+            shiftDown(j);
+        }
+    }
+
     /**
      * 向堆中插入一个元素
      *
@@ -61,6 +76,7 @@ public class MaxHeap<Item extends Comparable> {
      * @return
      */
     public Item extractMax() {
+        assert count > 0;
         Item i = data[1];
         SortTestHelper.swap(data, 1, count);
         count--;
