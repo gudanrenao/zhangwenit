@@ -59,3 +59,8 @@ README.md语法
 ### 图片
 
  ![测试图片](https://cdn.lepluslife.com/lepluslife/lepluslife.jpg)
+ 
+ idea相关
+ ---------
+ ### 配置相关
+ * assert断言开启：RUN -> Edit Configurations -> Configuration -> VM options : 输入-ea
