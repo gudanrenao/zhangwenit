@@ -91,6 +91,18 @@ public class SortTestHelper {
         arr[i] = arr[j];
         arr[j] = t;
     }
+    /**
+     * 交换数组中两个角标的值
+     *
+     * @param arr
+     * @param i
+     * @param j
+     */
+    public static void swap(int[] arr, int i, int j) {
+        int t = arr[i];
+        arr[i] = arr[j];
+        arr[j] = t;
+    }
 
     /**
      * 校验数组是否排序正确
