@@ -2,21 +2,20 @@ package com.zhangwen.learn.zhangwenit.api.system.controller;
 
 import com.zhangwen.learn.zhangwenit.api.system.entity.ManageUser;
 import com.zhangwen.learn.zhangwenit.api.system.service.ManageUserService;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import com.zhangwen.learn.zhangwenit.constant.ConstantKey;
+import com.zhangwen.learn.zhangwenit.util.JwtTokenUtil;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
  * @author zhangwen at 2018-08-15 22:56
  **/
 @RestController
-@RequestMapping("manageUsers")
+@RequestMapping("/manageUsers")
 public class ManageUserController {
 
     private final ManageUserService manageUserService;
@@ -38,21 +37,45 @@ public class ManageUserController {
         manageUserService.save(user);
     }
 
-    @GetMapping(value = "/login")
-    public void login(@RequestParam String username, @RequestParam String password, HttpServletResponse response) {
-        ManageUser userVo = manageUserService.findByName(username);
+    @GetMapping("/test")
+    public String test() {
+        return "success";
+    }
+
+    @GetMapping("/login")
+    public String login(@RequestParam String name, @RequestParam String password, HttpServletResponse response) {
+        ManageUser userVo = manageUserService.findByName(name);
         if (userVo != null && bCryptPasswordEncoder.matches(password, userVo.getPassword())) {
             //自定义生成Token，因为使用了自定义登录，就不会执行JWTLoginFilter了，所以需要字段调用生成token并返给前端
             // 这里可以根据用户信息查询对应的角色信息，这里为了简单，我直接设置个空list
             List roleList = new ArrayList<>();
             String subject = userVo.getName() + "-" + roleList;
-            String token = Jwts.builder()
-                    .setSubject(subject)
-                    .setExpiration(new Date(System.currentTimeMillis() + 365 * 24 * 60 * 60 * 1000)) // 设置过期时间 365 * 24 * 60 * 60秒(这里为了方便测试，所以设置了1年的过期时间，实际项目需要根据自己的情况修改)
-                    .signWith(SignatureAlgorithm.HS512, "MyJwtSecret") //采用什么算法是可以自己选择的，不一定非要采用HS512
-                    .compact();
+            String token =  JwtTokenUtil.generateToken(subject);
             // 登录成功后，返回token到header里面
-            response.addHeader("Authorization", "Bearer " + token);
+            response.addHeader("Authorization", token);
+            return "SUCCESS";
         }
+        return "FAIL";
+    }
+
+    /**
+     * 刷新token
+     *
+     * @param token
+     * @return
+     */
+    @GetMapping("/refreshToken")
+    public String refreshToken(@RequestParam String token) {
+        if (token == null || !token.startsWith(ConstantKey.SIGNING_PREFIX)) {
+            return "token is null";
+        }
+        boolean expired = JwtTokenUtil.isTokenExpired(token);
+        if (expired) {
+            return "token is expired";
+        } else {
+            //返回一个新的token
+            return JwtTokenUtil.refreshToken(token);
+        }
+
     }
 }

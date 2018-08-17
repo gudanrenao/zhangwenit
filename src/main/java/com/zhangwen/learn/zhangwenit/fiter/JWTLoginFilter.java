@@ -3,8 +3,7 @@ package com.zhangwen.learn.zhangwenit.fiter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zhangwen.learn.zhangwenit.api.system.entity.ManageUser;
 import com.zhangwen.learn.zhangwenit.constant.ConstantKey;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import com.zhangwen.learn.zhangwenit.util.JwtTokenUtil;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -18,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -80,13 +78,9 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
             for (GrantedAuthority grantedAuthority : authorities) {
                 roleList.add(grantedAuthority.getAuthority());
             }
-            token = Jwts.builder()
-                    .setSubject(auth.getName() + "-" + roleList)
-                    .setExpiration(new Date(System.currentTimeMillis() + 365 * 24 * 60 * 60 * 1000)) // 设置过期时间 365 * 24 * 60 * 60秒(这里为了方便测试，所以设置了1年的过期时间，实际项目需要根据自己的情况修改)
-                    .signWith(SignatureAlgorithm.HS512, ConstantKey.SIGNING_KEY) //采用什么算法是可以自己选择的，不一定非要采用HS512
-                    .compact();
+            token = JwtTokenUtil.generateToken(auth.getName() + "-" + roleList);
             // 登录成功后，返回token到header里面
-            response.addHeader("Authorization", "Bearer " + token);
+            response.addHeader("Authorization", token);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -3,7 +3,6 @@ package com.zhangwen.learn.zhangwenit.api.merchant.controller;
 import com.zhangwen.learn.zhangwenit.api.merchant.dto.MerchantCriteria;
 import com.zhangwen.learn.zhangwenit.api.merchant.service.MerchantService;
 import org.springframework.data.domain.Page;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * @author zhangwen at 2018-08-15 21:36
  **/
-@CrossOrigin
 @RestController
 @RequestMapping("/api/merchant")
 public class MerchantController {

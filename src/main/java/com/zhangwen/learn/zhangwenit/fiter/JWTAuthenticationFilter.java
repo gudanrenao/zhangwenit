@@ -1,6 +1,8 @@
 package com.zhangwen.learn.zhangwenit.fiter;
 
 import com.zhangwen.learn.zhangwenit.constant.ConstantKey;
+import com.zhangwen.learn.zhangwenit.util.JwtTokenUtil;
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -32,7 +34,7 @@ public class JWTAuthenticationFilter extends BasicAuthenticationFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
         String header = request.getHeader("Authorization");
 
-        if (header == null || !header.startsWith("Bearer ")) {
+        if (header == null || !header.startsWith(ConstantKey.SIGNING_PREFIX)) {
             chain.doFilter(request, response);
             return;
         }
@@ -47,12 +49,7 @@ public class JWTAuthenticationFilter extends BasicAuthenticationFilter {
         String token = request.getHeader("Authorization");
         if (token != null) {
             // parse the token.
-            String user = Jwts.parser()
-                    .setSigningKey(ConstantKey.SIGNING_KEY)
-                    .parseClaimsJws(token.replace("Bearer ", ""))
-                    .getBody()
-                    .getSubject();
-
+            String user = JwtTokenUtil.getSubjectFromToken(token);
             if (user != null) {
                 return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
             }
