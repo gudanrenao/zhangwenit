@@ -26,6 +26,18 @@ public class ManageUserController {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
+    @GetMapping("/test")
+    public String test() {
+
+        int a = 9;
+        int b = 8;
+
+
+        return "hello security !!!";
+
+
+    }
+
     /**
      * 该方法是注册用户的方法，默认放开访问控制
      *
@@ -37,11 +49,6 @@ public class ManageUserController {
         manageUserService.save(user);
     }
 
-    @GetMapping("/test")
-    public String test() {
-        return "success";
-    }
-
     @GetMapping("/login")
     public String login(@RequestParam String name, @RequestParam String password, HttpServletResponse response) {
         ManageUser userVo = manageUserService.findByName(name);
@@ -50,7 +57,7 @@ public class ManageUserController {
             // 这里可以根据用户信息查询对应的角色信息，这里为了简单，我直接设置个空list
             List roleList = new ArrayList<>();
             String subject = userVo.getName() + "-" + roleList;
-            String token =  JwtTokenUtil.generateToken(subject);
+            String token = JwtTokenUtil.generateToken(subject);
             // 登录成功后，返回token到header里面
             response.addHeader("Authorization", token);
             return "SUCCESS";

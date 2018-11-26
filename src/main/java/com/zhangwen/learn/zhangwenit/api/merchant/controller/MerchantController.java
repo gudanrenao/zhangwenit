@@ -25,8 +25,4 @@ public class MerchantController {
         return merchantService.findAll(merchantCriteria, merchantCriteria.getPageSize());
     }
 
-    @GetMapping("/test")
-    public String test() {
-        return "hello security";
-    }
 }

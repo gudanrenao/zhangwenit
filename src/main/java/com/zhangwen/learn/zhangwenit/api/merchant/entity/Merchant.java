@@ -3,6 +3,7 @@ package com.zhangwen.learn.zhangwenit.api.merchant.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -93,6 +94,17 @@ public class Merchant {
      * 绑定电话
      */
     private String merchantPhone;
+
+    @ManyToOne
+    private MerchantUser merchantUser;
+
+    public MerchantUser getMerchantUser() {
+        return merchantUser;
+    }
+
+    public void setMerchantUser(MerchantUser merchantUser) {
+        this.merchantUser = merchantUser;
+    }
 
     public Long getId() {
         return id;
