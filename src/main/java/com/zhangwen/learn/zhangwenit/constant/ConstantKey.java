@@ -14,9 +14,9 @@ public class ConstantKey {
      */
     public static final String SIGNING_PREFIX = "Bearer ";
     /**
-     * token有效期
+     * token有效期 30分钟
      */
-    public static final long SIGNING_EFFECTIVE_TIME = 30  * 1000;
+    public static final long SIGNING_EFFECTIVE_TIME = 30 * 60  * 1000;
 
 
 }
