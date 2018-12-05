@@ -1,9 +1,12 @@
 package com.zhangwen.learn.zhangwenit.annotation.controller;
 
+import com.zhangwen.learn.zhangwenit.annotation.annotation.ExecutionTimeTest;
 import com.zhangwen.learn.zhangwenit.annotation.annotation.MyTest;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Random;
 
 /**
  * 测试MyTest注解
@@ -15,16 +18,21 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("annotation")
 public class MyTestController {
 
-    @MyTest("测试 myTest method")
+//    @MyTest("测试 myTest method")
     @GetMapping("myTest")
     public String myTest() {
         System.out.println("myTest method execute");
         return "SUCCESS";
     }
 
-    @GetMapping("myTestNo")
-    public String myTestNoAnnotation() {
-        System.out.println("myTestNoAnnotation method execute");
+    @ExecutionTimeTest("timeTest")
+    @GetMapping("timeTest")
+    public String timeTest() throws InterruptedException {
+        //随机延迟
+        int i = new Random().nextInt(1000);
+        System.out.println("timeTest method execute,sleep:" + i);
+        Thread.sleep(i);
         return "SUCCESS";
     }
+
 }
