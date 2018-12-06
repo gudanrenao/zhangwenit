@@ -1,5 +1,6 @@
 package com.zhangwen.learn.zhangwenit.annotation.controller;
 
+import com.zhangwen.learn.zhangwenit.annotation.annotation.ClassTest;
 import com.zhangwen.learn.zhangwenit.annotation.annotation.ExecutionTimeTest;
 import com.zhangwen.learn.zhangwenit.annotation.annotation.MyTest;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,12 +14,12 @@ import java.util.Random;
  *
  * @author zhangwen at 2018-12-05 21:55
  **/
-@MyTest("测试 controller")
+@ClassTest("测试MyTestController")
 @RestController
 @RequestMapping("annotation")
 public class MyTestController {
 
-//    @MyTest("测试 myTest method")
+    @MyTest("测试myTest-method")
     @GetMapping("myTest")
     public String myTest() {
         System.out.println("myTest method execute");

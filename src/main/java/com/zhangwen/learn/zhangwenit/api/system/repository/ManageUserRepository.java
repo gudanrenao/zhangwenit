@@ -1,12 +1,12 @@
 package com.zhangwen.learn.zhangwenit.api.system.repository;
 
-import com.zhangwen.learn.zhangwenit.api.system.entity.ManageUser;
+import com.zhangwen.learn.zhangwenit.api.system.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * @author by zhangwen
  */
-public interface ManageUserRepository extends JpaRepository<ManageUser, Long> {
+public interface ManageUserRepository extends JpaRepository<User, Long> {
 
-    ManageUser findByName(String name);
+    User findByName(String name);
 }

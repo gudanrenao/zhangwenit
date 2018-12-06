@@ -35,14 +35,14 @@ public class ExecutionTimeAspect {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
         threadLocal.set(System.currentTimeMillis());
-        LOGGER.info("执行方法：{},开始时间：{}", method.getAnnotation(ExecutionTimeTest.class).value(), System.currentTimeMillis());
+        LOGGER.warn("执行方法：{},开始时间：{}", method.getAnnotation(ExecutionTimeTest.class).value(), System.currentTimeMillis());
     }
 
     @After("pointcut()")
     public void after(JoinPoint joinPoint) {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
-        LOGGER.info("执行方法：{},结束时间：{},消耗时间：{}毫秒", method.getAnnotation(ExecutionTimeTest.class).value(), System.currentTimeMillis(), System.currentTimeMillis() - threadLocal.get());
+        LOGGER.warn("执行方法：{},结束时间：{},消耗时间：{}毫秒", method.getAnnotation(ExecutionTimeTest.class).value(), System.currentTimeMillis(), System.currentTimeMillis() - threadLocal.get());
         threadLocal.remove();
     }
 }

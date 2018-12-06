@@ -1,8 +1,7 @@
 package com.zhangwen.learn.zhangwenit.fiter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.zhangwen.learn.zhangwenit.api.system.entity.ManageUser;
-import com.zhangwen.learn.zhangwenit.constant.ConstantKey;
+import com.zhangwen.learn.zhangwenit.api.system.entity.User;
 import com.zhangwen.learn.zhangwenit.util.JwtTokenUtil;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -47,7 +46,7 @@ public class JWTLoginFilter extends UsernamePasswordAuthenticationFilter {
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         try {
-            ManageUser user = new ObjectMapper().readValue(request.getInputStream(), ManageUser.class);
+            User user = new ObjectMapper().readValue(request.getInputStream(), User.class);
             return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
                     user.getName(), user.getPassword(), new ArrayList<>())
             );

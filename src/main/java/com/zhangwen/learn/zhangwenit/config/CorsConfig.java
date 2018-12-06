@@ -27,7 +27,7 @@ public class CorsConfig implements WebMvcConfigurer {
                 //设置允许的方法
                 .allowedMethods("*")
                 //允许前端拿到的headers
-                .exposedHeaders("Authorization")
+                .exposedHeaders("Authorization","Access-Control-Allow-Origin")
                 //跨域允许时间
                 .maxAge(3600);
     }

@@ -1,6 +1,6 @@
 package com.zhangwen.learn.zhangwenit.api.system.service;
 
-import com.zhangwen.learn.zhangwenit.api.system.entity.ManageUser;
+import com.zhangwen.learn.zhangwenit.api.system.entity.User;
 import com.zhangwen.learn.zhangwenit.api.system.repository.ManageUserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,11 +18,11 @@ public class ManageUserService {
     }
 
     @Transactional(rollbackFor = RuntimeException.class)
-    public void save(ManageUser user) {
+    public void save(User user) {
         manageUserRepository.save(user);
     }
 
-    public ManageUser findByName(String name) {
+    public User findByName(String name) {
         return manageUserRepository.findByName(name);
     }
 }

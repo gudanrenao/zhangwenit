@@ -50,8 +50,19 @@ public class MerchantEsServiceTest {
 
         PageRequest pageRequest = PageRequest.of(0, 100, Sort.Direction.DESC, "id");
         BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
-//        boolQueryBuilder.must(QueryBuilders.termQuery("name","测试门店002"));
+        //模糊查询
+        boolQueryBuilder.must(QueryBuilders.matchPhraseQuery("name","测试"));
+        //大于
+        boolQueryBuilder.must(QueryBuilders.rangeQuery("id").gt(1000));
+        //嵌套
+//        boolQueryBuilder.must(QueryBuilders.nestedQuery("merchantUser"),QueryBuilders.matchPhraseQuery("merchantName","ceshi"));
+
+        //过滤器，不影响评分_score
+        boolQueryBuilder.filter(QueryBuilders.rangeQuery("id").lt(1300));
+
+
         Page<MerchantInfo> page = merchantInfoRepository.search(boolQueryBuilder, pageRequest);
-        System.out.println(page);
+        System.out.println("总数为：" + page.getTotalElements());
+        page.forEach(e -> System.out.println(e.getId() + "----" + e.getName() + "----" + String.valueOf(e.getMerchantUser() == null ? "null" : e.getMerchantUser().getMerchantName())));
     }
 }

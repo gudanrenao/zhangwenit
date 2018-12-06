@@ -10,7 +10,7 @@ import javax.persistence.Id;
  * @author zhangwen at 2018-08-15 22:52
  **/
 @Entity
-public class ManageUser {
+public class User {
 
     @Id
     @GeneratedValue

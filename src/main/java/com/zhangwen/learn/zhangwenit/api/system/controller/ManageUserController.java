@@ -1,6 +1,6 @@
 package com.zhangwen.learn.zhangwenit.api.system.controller;
 
-import com.zhangwen.learn.zhangwenit.api.system.entity.ManageUser;
+import com.zhangwen.learn.zhangwenit.api.system.entity.User;
 import com.zhangwen.learn.zhangwenit.api.system.service.ManageUserService;
 import com.zhangwen.learn.zhangwenit.constant.ConstantKey;
 import com.zhangwen.learn.zhangwenit.util.JwtTokenUtil;
@@ -44,14 +44,14 @@ public class ManageUserController {
      * @param user
      */
     @PostMapping("/signup")
-    public void signUp(@RequestBody ManageUser user) {
+    public void signUp(@RequestBody User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         manageUserService.save(user);
     }
 
     @GetMapping("/login")
     public String login(@RequestParam String name, @RequestParam String password, HttpServletResponse response) {
-        ManageUser userVo = manageUserService.findByName(name);
+        User userVo = manageUserService.findByName(name);
         if (userVo != null && bCryptPasswordEncoder.matches(password, userVo.getPassword())) {
             //自定义生成Token，因为使用了自定义登录，就不会执行JWTLoginFilter了，所以需要字段调用生成token并返给前端
             // 这里可以根据用户信息查询对应的角色信息，这里为了简单，我直接设置个空list
