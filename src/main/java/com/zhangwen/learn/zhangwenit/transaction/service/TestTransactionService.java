@@ -26,11 +26,20 @@ public class TestTransactionService {
 
     @Transactional(rollbackFor = RuntimeException.class, propagation = Propagation.REQUIRED)
     public void requiredAndInnerRequired() {
+        test2();
         TestTransaction test1 = testTransactionRepository.findById(1L).orElse(new TestTransaction());
         test1.setName("required");
         testTransactionRepository.save(test1);
-        innerTransactionService.innerRequired();
-        throw new RuntimeException("手动抛出异常");
+//        innerTransactionService.innerRequired();
+//        throw new RuntimeException("手动抛出异常");
+    }
+
+    @Transactional(rollbackFor = RuntimeException.class, propagation = Propagation.REQUIRED)
+    public void test2() {
+        TestTransaction test1 = testTransactionRepository.findById(2L).orElse(new TestTransaction());
+        test1.setName("required222222");
+        testTransactionRepository.save(test1);
+//        throw new RuntimeException("手动抛出异常");
     }
 
     @Transactional(rollbackFor = RuntimeException.class, propagation = Propagation.REQUIRES_NEW)
