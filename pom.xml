@@ -25,6 +25,12 @@
     </properties>
 
     <dependencies>
+        <!--commons-lang3工具包-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.5</version>
+        </dependency>
         <!--google-->
         <dependency>
             <groupId>com.google.guava</groupId>
