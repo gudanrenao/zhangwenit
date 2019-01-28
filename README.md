@@ -10,7 +10,9 @@ Elasticsearch
 ---------------
 #### 接口相关
 * 接口的匿名实现类的使用(test.interfaceInnerClass)
-
+---------------
+#### 校验相关
+* 重复提交问题(synchronous.SynchronousTestService)
 ---------------
 
 ### 排序基础
