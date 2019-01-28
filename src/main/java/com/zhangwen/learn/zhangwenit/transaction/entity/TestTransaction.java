@@ -2,6 +2,7 @@ package com.zhangwen.learn.zhangwenit.transaction.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -14,7 +15,7 @@ import javax.persistence.Id;
 public class TestTransaction {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
@@ -32,5 +33,13 @@ public class TestTransaction {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "TestTransaction{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

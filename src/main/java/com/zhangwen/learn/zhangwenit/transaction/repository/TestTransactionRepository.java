@@ -10,4 +10,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @Version 1.0
  **/
 public interface TestTransactionRepository extends JpaRepository<TestTransaction,Long> {
+
+    long countByName(String name);
 }
