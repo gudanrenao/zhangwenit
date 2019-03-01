@@ -1,18 +1,26 @@
 package com.zhangwen.learn.zhangwenit;
 
 import com.google.common.collect.Lists;
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.zhangwen.learn.zhangwenit.api.system.entity.User;
 import io.netty.util.internal.StringUtil;
 import org.apache.commons.lang3.concurrent.BasicThreadFactory;
+import org.apache.commons.lang3.time.DateFormatUtils;
+import org.apache.commons.lang3.time.DateUtils;
+import org.joda.time.DateTimeUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.mvc.Controller;
 
+import javax.servlet.http.HttpServletRequest;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.*;
 
 /**
  * @Description 临时
@@ -23,34 +31,57 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 public class Test {
 
 
-    public static void main(String[] args) {
+    private static final Logger logger = LoggerFactory.getLogger(Test.class);
 
-        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext();
+    public static void main(String[] args) throws ParseException, InterruptedException {
+
+//        TestRun testRun = new TestRun();
+//        testRun.start();
+//
+//        long useTimes = 0;
+//        System.out.println(useTimes);
+//        Thread.sleep(60 * 1000);
+
+        String s = "！23a";
+
+        System.out.println(s.length());
+        System.out.println(s.getBytes().length);
+    }
 
 
-        long start = System.currentTimeMillis();
-        List<Integer> voList = Lists.newArrayList(1,2,3,4,5);
-        if(voList.size() > 0){
-            ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(10, new BasicThreadFactory.Builder().namingPattern("dispense-pool-%d").daemon(true).build());
-            final CountDownLatch countDownLatch = new CountDownLatch(voList.size());
-            for (Integer dispenseVo : voList) {
-                // 获取病区
-                executor.execute(() -> {
+    private static class TestRun implements Runnable {
 
-                        countDownLatch.countDown();
+        private ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1,
+                new ThreadFactoryBuilder()
+                        .setNameFormat("DiscoveryClient-InstanceInfoReplicator-%d")
+                        .setDaemon(true)
+                        .build());
 
-                });
-            }
-            try {
-                countDownLatch.await();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            } finally {
-                executor.shutdown();
-            }
+
+        /**
+         * When an object implementing interface <code>Runnable</code> is used
+         * to create a thread, starting the thread causes the object's
+         * <code>run</code> method to be called in that separately executing
+         * thread.
+         * <p>
+         * The general contract of the method <code>run</code> is that it may
+         * take any action whatsoever.
+         *
+         * @see Thread#run()
+         */
+        @Override
+        public void run() {
+            logger.error("run begin ............");
+            Future next = scheduler.schedule(this, 10, TimeUnit.SECONDS);
+            logger.error("run end ............");
+
         }
-        long end = System.currentTimeMillis();
-        System.out.println("foreach expend time：" + (end - start));
 
+        public void start() {
+            logger.error("start begin ............");
+            //这个调用后，会触发TestRun的run方法
+            scheduler.schedule(this,5,TimeUnit.SECONDS);
+            logger.error("start end ............");
+        }
     }
 }
