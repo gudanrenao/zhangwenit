@@ -12,14 +12,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.util.StreamUtils;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.mvc.Controller;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.*;
 
 /**
@@ -33,7 +33,7 @@ public class Test {
 
     private static final Logger logger = LoggerFactory.getLogger(Test.class);
 
-    public static void main(String[] args) throws ParseException, InterruptedException {
+    public static void main(String[] args) throws ParseException, InterruptedException, IOException {
 
 //        TestRun testRun = new TestRun();
 //        testRun.start();
@@ -42,10 +42,17 @@ public class Test {
 //        System.out.println(useTimes);
 //        Thread.sleep(60 * 1000);
 
-        String s = "！23a";
+//        String s = "！23a";
+//
+//        System.out.println(s.length());
+//        System.out.println(s.getBytes().length);
+//
+//        List<Integer> integerList = Arrays.asList(1, 2, 3);
+//        integerList.add(5);
 
-        System.out.println(s.length());
-        System.out.println(s.getBytes().length);
+//        StreamUtils.copyToByteArray(null);
+            HttpServletRequest request = null;
+        ArrayList<String> list = Collections.list(request.getHeaders("aaa"));
     }
 
 

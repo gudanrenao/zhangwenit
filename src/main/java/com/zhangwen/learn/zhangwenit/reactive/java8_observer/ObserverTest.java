@@ -25,7 +25,6 @@ public class ObserverTest {
         observable.setChanged();
 
         observable.notifyObservers("hello,world");
-
     }
 
     private static class MyObservable extends Observable {

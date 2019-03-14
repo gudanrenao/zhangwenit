@@ -1,9 +1,14 @@
 package com.zhangwen.learn.zhangwenit.io;
 
 import com.zhangwen.learn.zhangwenit.io.dto.Student;
+import org.springframework.util.StreamUtils;
+import org.springframework.web.util.DefaultUriBuilderFactory;
 
 import java.io.*;
+import java.net.URI;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -91,17 +96,32 @@ public class IOTest implements Serializable {
 //        }
 
         //DataInputStream DataOutputStream
-        File file = new File("/Users/zhangwen/work/code/zhangwenit/src/main/resources/io/data/input");
-        DataInputStream dataInputStream = new DataInputStream(new FileInputStream(file));
-        DataOutputStream dataOutputStream = new DataOutputStream(new FileOutputStream("/Users/zhangwen/work/code/zhangwenit/src/main/resources/io/data/output"));
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataInputStream));
-        String line;
-        while ((line = bufferedReader.readLine()) != null){
-            dataOutputStream.writeBytes(line.toUpperCase() + "   ");
-        }
-        bufferedReader.close();
-        dataInputStream.close();
-        dataOutputStream.close();
+//        File file = new File("/Users/zhangwen/work/code/zhangwenit/src/main/resources/io/data/input");
+//        DataInputStream dataInputStream = new DataInputStream(new FileInputStream(file));
+//        DataOutputStream dataOutputStream = new DataOutputStream(new FileOutputStream("/Users/zhangwen/work/code/zhangwenit/src/main/resources/io/data/output"));
+//        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(dataInputStream));
+//        String line;
+//        while ((line = bufferedReader.readLine()) != null){
+//            dataOutputStream.writeBytes(line.toUpperCase() + "   ");
+//        }
+//        bufferedReader.close();
+//        dataInputStream.close();
+//        dataOutputStream.close();
+
+//        FileInputStream inputStream = new FileInputStream(new File("/Users/zhangwen/work/code/zhangwenit/src/main/resources/io/test"));
+//
+//        byte[] bytes = StreamUtils.copyToByteArray(inputStream);
+//
+//        System.out.println(bytes.length);
+
+        DefaultUriBuilderFactory uriFactory = new DefaultUriBuilderFactory();
+        uriFactory.setEncodingMode(DefaultUriBuilderFactory.EncodingMode.URI_COMPONENT);
+        Map<String,Object> params = new HashMap<>(4);
+        params.put("name","张文");
+        params.put("age",18);
+        params.put("birthday","1992-01-07");
+        URI expand = uriFactory.expand("http://localhost:8080", params);
+        System.out.println(expand);
 
     }
 
