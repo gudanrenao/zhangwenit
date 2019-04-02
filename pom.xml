@@ -185,6 +185,14 @@
         <!--<artifactId>jaxb-core</artifactId>-->
         <!--<version>2.3.0</version>-->
         <!--</dependency>-->
+
+
+        <!-- JspServlet -->
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>jasper</artifactId>
+            <version>6.0.53</version>
+        </dependency>
     </dependencies>
 
     <build>

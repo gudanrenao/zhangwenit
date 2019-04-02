@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.Controller;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.text.ParseException;
 import java.util.*;
 import java.util.concurrent.*;
@@ -51,8 +52,10 @@ public class Test {
 //        integerList.add(5);
 
 //        StreamUtils.copyToByteArray(null);
-            HttpServletRequest request = null;
-        ArrayList<String> list = Collections.list(request.getHeaders("aaa"));
+//            HttpServletRequest request = null;
+//        ArrayList<String> list = Collections.list(request.getHeaders("aaa"));
+
+        System.out.println(StandardCharsets.UTF_8.toString());
     }
 
 
