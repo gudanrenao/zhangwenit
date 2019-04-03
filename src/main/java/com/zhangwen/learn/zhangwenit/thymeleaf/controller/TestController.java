@@ -19,7 +19,7 @@ public class TestController {
     @GetMapping("/template/{userName}")
     public String template(@PathVariable String userName, Model model) {
 
-        HttpServletRequestWrapper wrapper = new HttpServletRequestWrapper(null);
+//        HttpServletRequestWrapper wrapper = new HttpServletRequestWrapper(null);
         model.addAttribute("id", "1212");
         model.addAttribute("userName", userName);
         return "/email/template";
