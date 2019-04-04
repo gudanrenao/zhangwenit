@@ -1,6 +1,5 @@
 package com.zhangwen.learn.zhangwenit.elasticsearch.service;
 
-import com.zhangwen.learn.zhangwenit.elasticsearch.dao.MerchantInfoRepository;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,11 +11,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class MerchantEsService {
 
-    private final MerchantInfoRepository merchantInfoRepository;
+//    private final MerchantInfoRepository merchantInfoRepository;
 
-    public MerchantEsService(MerchantInfoRepository merchantInfoRepository) {
-        this.merchantInfoRepository = merchantInfoRepository;
-    }
+//    public MerchantEsService(MerchantInfoRepository merchantInfoRepository) {
+//        this.merchantInfoRepository = merchantInfoRepository;
+//    }
 
     public void findById(Long id){
 

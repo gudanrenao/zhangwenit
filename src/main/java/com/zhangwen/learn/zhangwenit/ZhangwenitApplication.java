@@ -6,7 +6,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @EnableAsync
 @SpringBootApplication
@@ -28,7 +31,7 @@ public class ZhangwenitApplication {
     }
 
     @GetMapping("/test/{id}")
-    public User user(@PathVariable Long id, @RequestParam(required = false) String name){
+    public User user(@PathVariable Long id, @RequestParam(required = false) String name) {
         User user = new User();
         user.setId(id);
         user.setName(name);
