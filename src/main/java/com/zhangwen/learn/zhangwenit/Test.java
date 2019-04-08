@@ -8,10 +8,7 @@ import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.VarHandle;
 import java.text.ParseException;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -62,10 +59,26 @@ public class Test {
 
 
         //VarHandle
-        Test test = new Test();
-        COUNT.set(test,200);
-        System.out.println(test);
+//        Test test = new Test();
+//        COUNT.set(test,200);
+//        System.out.println(test);
+
+//        System.out.println( (long)(1.0 + (long)16 / 0.75));
+
+        System.out.println(32 >> 1);
+
+        ConcurrentHashMap<String,String> concurrentHashMap = new ConcurrentHashMap<>();
+
+        concurrentHashMap.put("1","100");
+        concurrentHashMap.put("2","200");
+        concurrentHashMap.put("3","300");
+
+        System.out.println(concurrentHashMap.get("1"));
+        System.out.println(concurrentHashMap.size());
+
     }
+
+
 
 
     private static class TestRun implements Runnable {

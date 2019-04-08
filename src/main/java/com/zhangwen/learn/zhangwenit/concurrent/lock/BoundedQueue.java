@@ -54,6 +54,7 @@ public class BoundedQueue<T> {
      * @return
      * @throws InterruptedException
      */
+    @SuppressWarnings("unchecked")
     public T remove() throws InterruptedException {
         lock.lock();
         try {
