@@ -35,6 +35,7 @@ public class ZhangwenitApplication {
         User user = new User();
         user.setId(id);
         user.setName(name);
+        user.setPassword(id + String.valueOf(name));
         return user;
     }
 }

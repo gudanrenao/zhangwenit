@@ -33,6 +33,7 @@ public class BoundedQueue<T> {
     public void add(T t) throws InterruptedException {
         lock.lock();
         try {
+            //todo: 使用while而非if，是为了防止过早或意外的通知? 没明白啥意思
             while (count == items.length) {
                 notFull.await();
             }
