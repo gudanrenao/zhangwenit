@@ -1,6 +1,6 @@
-package com.zhangwen.learn.zhangwenit.concurrent.threadPool;
+package com.zhangwen.learn.zhangwenit.concurrent.executor;
 
-import com.zhangwen.learn.zhangwenit.concurrent.threadPool.ThreadPoolExecutor.MyThreadPoolExecutor;
+import com.zhangwen.learn.zhangwenit.concurrent.executor.ThreadPoolExecutor.MyThreadPoolExecutor;
 
 /**
  * @Description

@@ -1,6 +1,6 @@
-package com.zhangwen.learn.zhangwenit.concurrent.threadPool.ThreadPoolExecutor;
+package com.zhangwen.learn.zhangwenit.concurrent.executor.ThreadPoolExecutor;
 
-import com.zhangwen.learn.zhangwenit.concurrent.threadPool.MyRejectedExecutionHandler;
+import com.zhangwen.learn.zhangwenit.concurrent.executor.MyRejectedExecutionHandler;
 
 import java.security.AccessControlContext;
 import java.security.AccessController;

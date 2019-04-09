@@ -1,4 +1,4 @@
-package com.zhangwen.learn.zhangwenit.concurrent.threadPool.ThreadPoolExecutor;
+package com.zhangwen.learn.zhangwenit.concurrent.executor.ThreadPoolExecutor;
 
 import com.zhangwen.learn.zhangwenit.concurrent.util.SleepUtils;
 
