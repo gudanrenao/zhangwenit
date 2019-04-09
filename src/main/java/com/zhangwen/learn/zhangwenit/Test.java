@@ -65,16 +65,24 @@ public class Test {
 
 //        System.out.println( (long)(1.0 + (long)16 / 0.75));
 
-        System.out.println(32 >> 1);
+//        System.out.println(32 >> 1);
+//
+//        ConcurrentHashMap<String,String> concurrentHashMap = new ConcurrentHashMap<>();
+//
+//        concurrentHashMap.put("1","100");
+//        concurrentHashMap.put("2","200");
+//        concurrentHashMap.put("3","300");
+//
+//        System.out.println(concurrentHashMap.get("1"));
+//        System.out.println(concurrentHashMap.size());
 
-        ConcurrentHashMap<String,String> concurrentHashMap = new ConcurrentHashMap<>();
+        int COUNT_BITS = Integer.SIZE - 3;
+//        int COUNT_MASK = (1 << COUNT_BITS) - 1;
+//        System.out.println(8 & COUNT_MASK);
 
-        concurrentHashMap.put("1","100");
-        concurrentHashMap.put("2","200");
-        concurrentHashMap.put("3","300");
+        int a = 2 << COUNT_BITS;
 
-        System.out.println(concurrentHashMap.get("1"));
-        System.out.println(concurrentHashMap.size());
+        System.out.println(Runtime.getRuntime().availableProcessors());
 
     }
 
