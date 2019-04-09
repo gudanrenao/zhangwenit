@@ -82,7 +82,7 @@ public class Test {
 
         int a = 2 << COUNT_BITS;
 
-        System.out.println(Runtime.getRuntime().availableProcessors());
+
 
     }
 

@@ -1,6 +1,7 @@
 package com.zhangwen.learn.zhangwenit.basic.java.lang;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -12,7 +13,8 @@ import java.util.Map;
  * @Date 2019/4/9 6:13 PM
  * @Version 1.0
  **/
-@RestController("/runtime")
+@RestController
+@RequestMapping("/runtime")
 public class RuntimeTest {
 
     /**
