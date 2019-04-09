@@ -3,7 +3,7 @@ package com.zhangwen.learn.zhangwenit.concurrent.collection.ConcurrentlinkedQueu
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
- * @Description
+ * @Description todo:源码待理解
  * @Author ZWen
  * @Date 2019/4/8 12:05 PM
  * @Version 1.0

@@ -3,7 +3,7 @@ package com.zhangwen.learn.zhangwenit.concurrent.tool.cyclicBarrier;
 import java.util.concurrent.CyclicBarrier;
 
 /**
- * @Description
+ * @Description todo:源码待理解
  * @Author ZWen
  * @Date 2019/4/8 7:22 PM
  * @Version 1.0
