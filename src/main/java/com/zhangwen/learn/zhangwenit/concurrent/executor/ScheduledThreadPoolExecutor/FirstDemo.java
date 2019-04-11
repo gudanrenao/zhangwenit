@@ -88,4 +88,18 @@ public class FirstDemo {
             PrintUtils.printWithTime("after 2 second running,then fixed rate run with 3 second");
         }, 2, 3, TimeUnit.SECONDS);
     }
+
+
+    private static void myScheduleTest(){
+        MyScheduledThreadPoolExecutor scheduledThreadPoolExecutor = new MyScheduledThreadPoolExecutor(5,
+                new ThreadFactoryBuilder().setNameFormat("my-scheduled-task-%s").build());
+
+        scheduledThreadPoolExecutor.scheduleWithFixedDelay(() -> {
+            PrintUtils.printWithTime("after 2 second running,then fixed delay run with 3 second");
+        }, 2, 3, TimeUnit.SECONDS);
+
+        scheduledThreadPoolExecutor.schedule(() -> {
+            PrintUtils.printWithTime("after 2 second running");
+        }, 2, TimeUnit.SECONDS);
+    }
 }
