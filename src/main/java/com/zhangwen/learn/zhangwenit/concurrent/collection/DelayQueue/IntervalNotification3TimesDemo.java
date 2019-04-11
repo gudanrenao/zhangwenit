@@ -27,7 +27,6 @@ public class IntervalNotification3TimesDemo {
 
     private static final DelayQueue<UserDelayDemo> userDelayQueue = new DelayQueue<>();
 
-
     public IntervalNotification3TimesDemo() {
         send();
     }

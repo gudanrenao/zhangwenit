@@ -18,7 +18,7 @@ import static java.util.concurrent.TimeUnit.MILLISECONDS;
 public class FirstDemo {
 
     /**
-     * todo 1,源码中leader是干啥的
+     * todo 1,源码中leader是干啥的：初步理解是减少signal()的使用
      *
      * @param args
      */

@@ -18,6 +18,10 @@ public final class PrintUtils {
         System.out.printf("current thread[%s]  msg:[%s] \n", Thread.currentThread().getName(), String.valueOf(msg));
     }
 
+    public static void printWithTime(Object msg) {
+        System.out.printf(currTime() + " current thread[%s]  msg:[%s] \n", Thread.currentThread().getName(), String.valueOf(msg));
+    }
+
     public static String currTime() {
         return DateFormatUtils.format(new Date(), pattern);
     }
