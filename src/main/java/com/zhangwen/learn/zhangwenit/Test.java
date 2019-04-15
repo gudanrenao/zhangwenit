@@ -148,7 +148,8 @@ public class Test {
 //        System.out.println(list.size());
 
 
-        System.out.println(null + "121212");
+//        System.out.println(null + "121212");
+        System.out.println(11 & 3);
 
     }
 
