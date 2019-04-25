@@ -1,22 +1,24 @@
 package com.zhangwen.learn.zhangwenit;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.zhangwen.learn.zhangwenit.temp.entities.TempOpenId;
-import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.VarHandle;
 import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.Map;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @Description 临时
@@ -151,6 +153,38 @@ public class Test {
 //        System.out.println(null + "121212");
         System.out.println(11 & 3);
 
+
+        AtomicInteger atomicInteger = new AtomicInteger(100000);
+        List<Integer> list1 = Stream.generate(atomicInteger::getAndDecrement).limit(100000).collect(Collectors.toList());
+        atomicInteger.set(1);
+        List<Integer> list2 = Stream.generate(atomicInteger::getAndIncrement).limit(1000).collect(Collectors.toList());
+
+        List<Integer> result = new ArrayList<>();
+        long begin = System.currentTimeMillis();
+        for (Integer i1 : list1) {
+            for (Integer i2 : list2) {
+                if (i2.equals(i1)) {
+                    result.add(i1);
+                    break;
+                }
+            }
+        }
+        System.out.println("use time is " + (System.currentTimeMillis() - begin));
+        System.out.println("result size is " + result.size());
+        System.out.println("-----------------------------------");
+        List<Integer> result2 = new ArrayList<>();
+        long begin2 = System.currentTimeMillis();
+        Map<Integer, Integer> map = new HashMap<>();
+        for (Integer i2 : list2) {
+            map.put(i2, i2);
+        }
+        for (Integer i1 : list1) {
+            if (map.containsKey(i1)) {
+                result2.add(i1);
+            }
+        }
+        System.out.println("use time is " + (System.currentTimeMillis() - begin2));
+        System.out.println("result2 size is " + result2.size());
     }
 
 
