@@ -1,15 +1,13 @@
 package com.zhangwen.learn.zhangwenit;
 
+import com.zhangwen.learn.zhangwenit.api.merchant.dto.DemoDto;
 import com.zhangwen.learn.zhangwenit.api.system.entity.User;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @EnableAsync
 @SpringBootApplication
@@ -37,5 +35,11 @@ public class ZhangwenitApplication {
         user.setName(name);
         user.setPassword(id + String.valueOf(name));
         return user;
+    }
+
+    @PostMapping("/test")
+    public Object user(@RequestBody DemoDto demoDto) {
+        System.out.println(demoDto);
+        return demoDto;
     }
 }
