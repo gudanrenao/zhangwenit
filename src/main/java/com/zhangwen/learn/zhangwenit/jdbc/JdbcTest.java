@@ -3,6 +3,7 @@ package com.zhangwen.learn.zhangwenit.jdbc;
 import com.zhangwen.learn.zhangwenit.transaction.entity.TestTransaction;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,7 @@ public class JdbcTest {
     /**
      * 原生JDBC操作
      */
-    public static void execTest() throws ClassNotFoundException, SQLException, IllegalAccessException, InstantiationException, NoSuchFieldException {
+    public static void execTest() throws ClassNotFoundException, SQLException, IllegalAccessException, InstantiationException, NoSuchFieldException, NoSuchMethodException, InvocationTargetException {
         //加载驱动类
         Class.forName("com.mysql.jdbc.Driver");
         //获取连接
@@ -37,7 +38,7 @@ public class JdbcTest {
         List<TestTransaction> list = new ArrayList<>(4);
         while (resultSet.next()) {
             Class cl = TestTransaction.class;
-            Object instance = cl.newInstance();
+            Object instance = cl.getDeclaredConstructor().newInstance();
             for (int i = 1; i <= columnCount; i++) {
                 String columnName = resultSet.getMetaData().getColumnName(i);
                 Field field = cl.getDeclaredField(columnName);

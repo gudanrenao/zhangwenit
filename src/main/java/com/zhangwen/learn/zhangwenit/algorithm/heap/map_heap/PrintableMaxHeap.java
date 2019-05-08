@@ -108,7 +108,7 @@ public class PrintableMaxHeap extends MaxHeap<Comparable<Integer>> {
         int N = 31; // 堆中元素个数
         int M = 100; // 堆中元素取值范围[0, M)
         for( int i = 0 ; i < N ; i ++ )
-            maxHeap.insert( new Integer((int)(Math.random() * M)) );
+            maxHeap.insert((int) (Math.random() * M));
         maxHeap.treePrint();
 
     }
