@@ -4,7 +4,9 @@ import com.google.common.collect.Lists;
 
 import java.lang.reflect.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Description
@@ -217,13 +219,12 @@ public class FirstDemo {
 
     /**
      * 返回类型为泛型对象的
-     *
      */
     public static void getReturnTypeWithGeneric() throws NoSuchMethodException {
         Class cl = PrivateClassDemo.class;
         Method method = cl.getDeclaredMethod("getList");
         Type genericReturnType = method.getGenericReturnType();
-        if(genericReturnType instanceof ParameterizedType){
+        if (genericReturnType instanceof ParameterizedType) {
             ParameterizedType parameterizedType = (ParameterizedType) genericReturnType;
             Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
             for (Type actualTypeArgument : actualTypeArguments) {
@@ -233,6 +234,73 @@ public class FirstDemo {
             System.out.println("type name :" + parameterizedType.getTypeName());
             Class rawClass = (Class) parameterizedType.getRawType();
             System.out.println("raw class : " + rawClass);
+        }
+
+        System.out.println("====================================================================================");
+
+        Method getMapMethod = cl.getDeclaredMethod("getMap");
+        Type returnType = getMapMethod.getGenericReturnType();
+        if (returnType instanceof ParameterizedType) {
+            ParameterizedType type = (ParameterizedType) returnType;
+            Type[] actualTypeArguments = type.getActualTypeArguments();
+            for (Type actualTypeArgument : actualTypeArguments) {
+                Class actualArgClass = (Class) actualTypeArgument;
+                System.out.println("actualArgClass is " + actualArgClass);
+            }
+            System.out.println("type name :" + type.getTypeName());
+            Class rawClass = (Class) type.getRawType();
+            System.out.println("raw class : " + rawClass);
+        }
+    }
+
+    /**
+     * 获取泛型参数
+     */
+    public static void getGenericParam() throws NoSuchMethodException {
+        Class cl = PrivateClassDemo.class;
+        Method method = cl.getDeclaredMethod("getGenericParam", List.class, Map.class);
+        Type[] genericParameterTypes = method.getGenericParameterTypes();
+        for (Type genericParameterType : genericParameterTypes) {
+            if (genericParameterType instanceof ParameterizedType) {
+                ParameterizedType parameterizedType = (ParameterizedType) genericParameterType;
+                System.out.println("class is " + parameterizedType.getRawType());
+                Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
+                for (Type actualTypeArgument : actualTypeArguments) {
+                    Class aCl = (Class) actualTypeArgument;
+                    System.out.println("actual param is " + aCl);
+                }
+            }
+            System.out.println("====================================================================================");
+        }
+    }
+
+    /**
+     * 获取泛型变量(可以是类的静态成员变量也可以是实例成员变量)
+     */
+    public static void getGenericField() throws NoSuchFieldException {
+        Class cl = PrivateClassDemo.class;
+        Field genericPublicListField = cl.getField("genericPublicList");
+        Type genericType = genericPublicListField.getGenericType();
+        System.out.println(genericType);
+        if(genericType instanceof ParameterizedType){
+            ParameterizedType parameterizedType = (ParameterizedType) genericType;
+            System.out.println("filed class is " + parameterizedType.getRawType());
+            Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
+            for (Type actualTypeArgument : actualTypeArguments) {
+                System.out.println("actual type is " + actualTypeArgument);
+            }
+        }
+        System.out.println("====================================================================================");
+        Field genericPrivateMapField = cl.getDeclaredField("genericPrivateMap");
+        Type genericType2 = genericPrivateMapField.getGenericType();
+        System.out.println(genericType2);
+        if(genericType2 instanceof ParameterizedType){
+            ParameterizedType parameterizedType = (ParameterizedType) genericType2;
+            System.out.println("filed class is :" + parameterizedType.getRawType());
+            Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
+            for (Type actualTypeArgument : actualTypeArguments) {
+                System.out.println("actual type is :" + actualTypeArgument);
+            }
         }
     }
 
@@ -252,7 +320,9 @@ public class FirstDemo {
 //        getStaticMethod();
 //        getFields();
 //        getDeclareFields();
-        getReturnTypeWithGeneric();
+//        getReturnTypeWithGeneric();
+//        getGenericParam();
+        getGenericField();
     }
 
     private final static class PrivateClassDemo extends SuperClass {
@@ -262,6 +332,9 @@ public class FirstDemo {
 
         private String remark;
         private Integer age;
+
+        public List<String> genericPublicList;
+        private Map<String, Object> genericPrivateMap;
 
         public PrivateClassDemo() {
         }
@@ -303,9 +376,22 @@ public class FirstDemo {
             System.out.println("static private msg : " + msg);
         }
 
-        public List<Integer> getList(){
-            return Lists.newArrayList(1,2,3);
+        public List<Integer> getList() {
+            return Lists.newArrayList(1, 2, 3);
         }
+
+        public void getGenericParam(List<String> list1, Map<String, Object> map1) {
+            System.out.println("getGenericParam success");
+        }
+
+        public Map<Integer, String> getMap() {
+            Map<Integer, String> map = new HashMap<>();
+            map.put(1, "1");
+            map.put(2, "2");
+            map.put(3, "3");
+            return map;
+        }
+
 
         @Override
         public String toString() {
