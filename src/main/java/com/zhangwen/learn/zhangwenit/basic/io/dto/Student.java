@@ -1,4 +1,4 @@
-package com.zhangwen.learn.zhangwenit.io.dto;
+package com.zhangwen.learn.zhangwenit.basic.io.dto;
 
 import java.io.Serializable;
 

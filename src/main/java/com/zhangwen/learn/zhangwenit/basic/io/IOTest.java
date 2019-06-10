@@ -1,19 +1,12 @@
-package com.zhangwen.learn.zhangwenit.io;
+package com.zhangwen.learn.zhangwenit.basic.io;
 
-import com.zhangwen.learn.zhangwenit.io.dto.Student;
-import org.springframework.util.StreamUtils;
+import com.zhangwen.learn.zhangwenit.basic.io.dto.Student;
 import org.springframework.web.util.DefaultUriBuilderFactory;
 
 import java.io.*;
-import java.lang.ref.Cleaner;
-import java.lang.ref.PhantomReference;
-import java.lang.ref.Reference;
-import java.lang.ref.WeakReference;
 import java.net.URI;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 /**
  * @Description

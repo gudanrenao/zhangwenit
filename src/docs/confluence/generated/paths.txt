@@ -1,0 +1,1075 @@
+
+h2. Paths {anchor:paths}
+
+h3. 添加任务 {anchor:addjobusingpost}
+{noformat}
+POST /job/addjob
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Query*|*cronExpression*\\ \\ _optional_||任务的执行计划cron表达式||string|| |
+|*Query*|*jobClassName*\\ \\ _optional_||任务的全限定类名||string|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO|#responsevo]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-任务调度
+
+
+h3. 删除任务 {anchor:deletejobusingpost}
+{noformat}
+POST /job/deletejob
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Query*|*jobClassName*\\ \\ _optional_||任务的全限定类名||string|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO|#responsevo]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-任务调度
+
+
+h3. 暂停任务 {anchor:pausejobusingpost}
+{noformat}
+POST /job/pausejob
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Query*|*jobClassName*\\ \\ _optional_||任务的全限定类名||string|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO|#responsevo]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-任务调度
+
+
+h3. 重新调度任务 {anchor:reschedulejobusingpost}
+{noformat}
+POST /job/reschedulejob
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Query*|*cronExpression*\\ \\ _optional_||任务的执行计划cron表达式||string|| |
+|*Query*|*jobClassName*\\ \\ _optional_||任务的全限定类名||string|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO|#responsevo]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-任务调度
+
+
+h3. 中断后重新开始任务 {anchor:resumejobusingpost}
+{noformat}
+POST /job/resumejob
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Query*|*jobClassName*\\ \\ _optional_||任务的全限定类名||string|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO|#responsevo]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-任务调度
+
+
+h3. 新建管理分类 {anchor:createusingpost}
+{noformat}
+POST /syscode/create
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*syscodeEntity*\\ \\ _required_||syscodeEntity||[SyscodeEntity对象|#f58ad1e61d79fb39f221fd66a8f72067]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*0*|| ||string|
+|*200*||OK||[ResponseVO«SyscodeEntity对象»|#446ff16df954de5d703c8ba144361447]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-管理分类
+
+
+h3. 删除管理分类 {anchor:deletebyidusingpost}
+{noformat}
+POST /syscode/deleteById
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*criteria*\\ \\ _optional_||只需传入id字段||[SyscodeCriteria|#syscodecriteria]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO|#responsevo]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-管理分类
+
+
+h3. 根据typeId查询管理分类数据 {anchor:findbytypeidusingpost}
+{noformat}
+POST /syscode/findByTypeId
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*criteria*\\ \\ _optional_||需要传入typeId字段||[SyscodeCriteria|#syscodecriteria]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*0*|| ||[SyscodeEntity对象|#f58ad1e61d79fb39f221fd66a8f72067]|
+|*200*||OK||[ResponseVO«List«SyscodeDto»»|#c5d71c225438047416a0d110d4810bef]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-管理分类
+
+
+h3. 修改管理分类 {anchor:modifyusingpost}
+{noformat}
+POST /syscode/modify
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*syscodeEntity*\\ \\ _required_||syscodeEntity||[SyscodeEntity对象|#f58ad1e61d79fb39f221fd66a8f72067]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*0*|| ||string|
+|*200*||OK||[ResponseVO|#responsevo]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-管理分类
+
+
+h3. 获取正向事件节点列表 {anchor:forwardlistusingpost}
+{noformat}
+POST /sysnodeFit/forwardList
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*0*|| ||[事件列表|#38c1fc1217a3978f7ac5d55351e707cd]|
+|*200*||OK||[ResponseVO«List«事件列表»»|#eeed278bbcc437a0a3998fba44716d4c]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-事件节点设置
+
+
+h3. 获取正22222 {anchor:forwardlist2usingpost}
+{noformat}
+POST /sysnodeFit/forwardList2
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[TemplateJobCreateCriteriaDto|#templatejobcreatecriteriadto]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-事件节点设置
+
+
+h3. 根据bizId分页查询操作日志数据，按照createTime字段倒序输出 {anchor:findpagebybizidusingpost}
+{noformat}
+POST /sysoperationLog/findPageByBizId
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*criteria*\\ \\ _optional_||需要传入bizId字段||[SysoperationLogEntityCriteria|#sysoperationlogentitycriteria]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*0*|| ||[SysoperationLogEntity对象|#9800af9dd4b1945e162f2fd26df40788]|
+|*200*||OK||[ResponseVO«IPage«SysoperationLogDto»»|#980053bbe4734393ef5cc5e811c322ba]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-操作日志
+
+
+h3. 新建模板 {anchor:createusingpost_1}
+{noformat}
+POST /template/create
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*detailDto*\\ \\ _required_||detailDto||[模板详细信息|#d334be08a891dc01c93e160bca9a6203]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO«string»|#3174a67dfff8a5e1b0454eeae3de4ae9]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-模板-模板信息
+
+
+h3. 删除模板 {anchor:delbyidusingpost}
+{noformat}
+POST /template/delTemplateById
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*operationDto*\\ \\ _optional_||只需传入id字段||[TemplateOperationDto|#templateoperationdto]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO|#responsevo]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-模板-模板信息
+
+
+h3. 根据id查询模板详细信息 {anchor:detailbyidusingpost}
+{noformat}
+POST /template/detailById
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*operationDto*\\ \\ _optional_||只需传入id字段||[TemplateOperationDto|#templateoperationdto]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO«模板详细信息»|#0ae9cf837fc09c315a92dae13674234a]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-模板-模板信息
+
+
+h3. 分页条件查询模板列表 {anchor:findbycriteriausingpost}
+{noformat}
+POST /template/findByCriteria
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*criteria*\\ \\ _required_||criteria||[模板查询条件|#5b9feb7db124088e8160d26f28165186]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO«PageInfo«模板列表数据»»|#2ad0d63d667567cdbb193371127730b1]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-模板-模板信息
+
+
+h3. 修改模板 {anchor:modifyusingpost_1}
+{noformat}
+POST /template/modify
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*detailDto*\\ \\ _required_||detailDto||[模板详细信息|#d334be08a891dc01c93e160bca9a6203]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO«string»|#3174a67dfff8a5e1b0454eeae3de4ae9]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-模板-模板信息
+
+
+h3. 审核不通过一个模版任务，待确认变为已取消 {anchor:cancletemplatejobbyidusingpost}
+{noformat}
+POST /templateJob/cancleTemplateJobById
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*criteriaDto*\\ \\ _required_||criteriaDto||[TemplateJobIdCriteriaDto|#templatejobidcriteriadto]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO|#responsevo]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-任务-模板任务
+
+
+h3. 单个模版任务的查看，及联查看所有的阶段任务和素材任务 {anchor:detailbyidusingpost_1}
+{noformat}
+POST /templateJob/detailById
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*criteriaDto*\\ \\ _required_||criteriaDto||[TemplateJobIdCriteriaDto|#templatejobidcriteriadto]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO«TemplateJobDto»|#75436d99e4ab48f55a93f6a8c1386f64]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-任务-模板任务
+
+
+h3. 全部模版任务的列表分页条件查询 {anchor:findbycriteriausingpost_1}
+{noformat}
+POST /templateJob/findByCriteria
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*criteriaDto*\\ \\ _required_||criteriaDto||[TemplateJobListCriteriaDto|#templatejoblistcriteriadto]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*0*|| ||[TemplateJobListDto|#templatejoblistdto]|
+|*200*||OK||[ResponseVO«IPage«TemplateJobListDto»»|#62ce835d4974b7f6592c19428de8d886]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-任务-模板任务
+
+
+h3. 全部任务分类统计接口 {anchor:findstatusgroupbycriteriausingpost}
+{noformat}
+POST /templateJob/findStatusGroupByCriteria
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*criteriaDto*\\ \\ _required_||criteriaDto||[TemplateJobListCriteriaDto|#templatejoblistcriteriadto]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*0*|| ||[TemplateJobListStatusGroupDto|#templatejobliststatusgroupdto]|
+|*200*||OK||[ResponseVO«TemplateJobListStatusGroupDto»|#49c534bbb12dca96636edbd731728236]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-任务-模板任务
+
+
+h3. 审核通过一个模版任务，待确认变为执行中 {anchor:starttemplatejobbyidusingpost}
+{noformat}
+POST /templateJob/startTemplateJobById
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*criteriaDto*\\ \\ _required_||criteriaDto||[TemplateJobIdCriteriaDto|#templatejobidcriteriadto]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO|#responsevo]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-任务-模板任务
+
+
+h3. 审核通过后终止，执行中变为已终止 {anchor:stoptemplatejobbyidusingpost}
+{noformat}
+POST /templateJob/stopTemplateJobById
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*criteriaDto*\\ \\ _required_||criteriaDto||[TemplateJobIdCriteriaDto|#templatejobidcriteriadto]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO|#responsevo]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-任务-模板任务
+
+
+h3. 把一个子任务的状态由待执行，改变为取消执行 {anchor:cancleexecutematerialjobbyidusingpost}
+{noformat}
+POST /templateNodeMaterialJob/cancleExecuteMaterialJobById
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*criteriaDto*\\ \\ _required_||criteriaDto||[TemplateNodeMaterialJobIdCriteriaDto|#templatenodematerialjobidcriteriadto]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO«TemplateNodeMaterialJobDto»|#823db8402599fac3b104781be6c1c2d4]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-任务-模板任务中阶段任务下的素材任务
+
+
+h3. 返回一个素材ID对应的实例 {anchor:detailbyidusingpost_2}
+{noformat}
+POST /templateNodeMaterialJob/detailById
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*criteriaDto*\\ \\ _required_||criteriaDto||[TemplateNodeMaterialJobIdCriteriaDto|#templatenodematerialjobidcriteriadto]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO«TemplateNodeMaterialJobDto»|#823db8402599fac3b104781be6c1c2d4]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-任务-模板任务中阶段任务下的素材任务
+
+
+h3. 执行中的任务，状态改为已完成，只保存执行过程中填写的记录 {anchor:finishexecutematerialjobbyidusingpost}
+{noformat}
+POST /templateNodeMaterialJob/finishExecuteMaterialJobById
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*criteriaDto*\\ \\ _required_||criteriaDto||[TemplateNodeMaterialJobExecuteCriteriaDto|#templatenodematerialjobexecutecriteriadto]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO«TemplateNodeMaterialJobDto»|#823db8402599fac3b104781be6c1c2d4]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-任务-模板任务中阶段任务下的素材任务
+
+
+h3. 执行中的任务，不更改状态，只保存执行过程中填写的记录 {anchor:saveexecutematerialjobbyidusingpost}
+{noformat}
+POST /templateNodeMaterialJob/saveExecuteMaterialJobById
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*criteriaDto*\\ \\ _required_||criteriaDto||[TemplateNodeMaterialJobExecuteCriteriaDto|#templatenodematerialjobexecutecriteriadto]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO«TemplateNodeMaterialJobDto»|#823db8402599fac3b104781be6c1c2d4]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-任务-模板任务中阶段任务下的素材任务
+
+
+h3. 把一个子任务的状态由待执行或者已过期，改变为开始执行 {anchor:startexecutematerialjobbyidusingpost}
+{noformat}
+POST /templateNodeMaterialJob/startExecuteMaterialJobById
+{noformat}
+
+
+h4. Parameters
+
+||Type||Name||Description||Schema||Default||
+|*Header*|*x-access-token*\\ \\ _optional_||登录凭证(非必填-登录拦截时为*必填)||string||{noformat}"I3txfCdBMiuC8JXVT/2C7RiJKw9Tj+VgY9eyAd5usjoUaFfmmRNmFnvo17qsAXE10FXyjnqAHYOciX2Uu96QBrWbVInkQfVRWjLDkCv23cgdMTFH2JxNJ2LvAfBPx58XmQ32A2FPhPUoLaQwx71373QgT1TueAuve4x953UOWic=,gRgZq2085yAsGpayrK/82/Fq9Km4dqGdVJ8LxFISvDWiMVrrX0TvxxtRKGH88k2xmyCgyoILNi/AuMTYYy75li7cOrkNU6HYfsreviDX2k7Drv6w0EPUGrw1cE9ZLSyQx03PXWDzaki5lB/jWMUe6R4Lsl2xQ0pN8cndcI4jMag=,g6Ve6qAyAW2el08P3LQETclDzKm8BxZl+fFhPHgfr/MYUWldU6jmwuA+cXB/jxtw3wtnR8WgegPBxdCHQQ5vos50t4eVReNZJnBDpPePzdAYfgDtPDJJlGXm44TExOrYHwB2R4lUKHE7QvCDwxrRS04JeHzGfF01S3BEUcSHMuA=,PTdgvPzNpJl/FJwUKYlg27l/KHudWBb6Psd84wypk88rHVxpaXF19ZUGaOxP8JxAPFH1DD2S5XSuGp2vDeV/E5O0CVfr4aB7LFUBE6BtiVTaqXLFvyohJWpwdPzkUmOlC2jTgeQmTjypw1x0faN/DFzDrAwRrqYNkzQYJhvrGec="{noformat}|
+|*Body*|*criteriaDto*\\ \\ _required_||criteriaDto||[TemplateNodeMaterialJobIdCriteriaDto|#templatenodematerialjobidcriteriadto]|| |
+
+
+h4. Responses
+
+||HTTP Code||Description||Schema||
+|*200*||OK||[ResponseVO«TemplateNodeMaterialJobDto»|#823db8402599fac3b104781be6c1c2d4]|
+|*201*||Created||No Content|
+|*401*||Unauthorized||No Content|
+|*403*||Forbidden||No Content|
+|*404*||Not Found||No Content|
+
+
+h4. Consumes
+
+* {noformat}application/json{noformat}
+
+
+h4. Produces
+
+* {noformat}\*/*{noformat}
+
+
+h4. Tags
+
+* 随访-任务-模板任务中阶段任务下的素材任务
+
+
+

@@ -20,7 +20,7 @@ public class FirstDemo {
      * 获取Class对象
      */
     public static void getClassByForName() throws ClassNotFoundException {
-        String className = "com.zhangwen.learn.zhangwenit.reflect.FirstDemo";
+        String className = "com.zhangwen.learn.zhangwenit.reflect.Out";
         Class<?> aClass = Class.forName(className);
         System.out.println(aClass);
     }

@@ -1,0 +1,584 @@
+
+h2. Definitions {anchor:definitions}
+
+h3. ChooseItem {anchor:chooseitem}
+
+||Name||Description||Schema||
+|*id*\\ \\ _optional_||每个选项的id或code值||string|
+|*name*\\ \\ _optional_||每个选项的name||string|
+
+
+h3. IPage«SysoperationLogDto» {anchor:8915fe7f40da797760ddf74f7bc055a9}
+
+||Name||Schema||
+|*current*\\ \\ _optional_||integer (int64)|
+|*pages*\\ \\ _optional_||integer (int64)|
+|*records*\\ \\ _optional_||< [SysoperationLogDto|#sysoperationlogdto] > array|
+|*searchCount*\\ \\ _optional_||boolean|
+|*size*\\ \\ _optional_||integer (int64)|
+|*total*\\ \\ _optional_||integer (int64)|
+
+
+h3. IPage«TemplateJobListDto» {anchor:be0b924ddf91b154f730bae35f894d46}
+
+||Name||Schema||
+|*current*\\ \\ _optional_||integer (int64)|
+|*pages*\\ \\ _optional_||integer (int64)|
+|*records*\\ \\ _optional_||< [TemplateJobListDto|#templatejoblistdto] > array|
+|*searchCount*\\ \\ _optional_||boolean|
+|*size*\\ \\ _optional_||integer (int64)|
+|*total*\\ \\ _optional_||integer (int64)|
+
+
+h3. PageInfo«模板列表数据» {anchor:92666053b11f624ae7c7bdd3fcdcacc7}
+
+||Name||Description||Schema||
+|*pages*\\ \\ _optional_|| ||integer (int64)|
+|*resultList*\\ \\ _optional_||列表数据||< [模板列表数据|#eeed802c2084e85f07560ceeaf9bcdda] > array|
+|*searchCount*\\ \\ _optional_|| ||boolean|
+|*totalCount*\\ \\ _optional_||总行数||integer (int64)|
+
+
+h3. ResponseHeader {anchor:responseheader}
+响应头
+
+
+||Name||Description||Schema||
+|*errCode*\\ \\ _optional_||错误码\\ \\ *Example* : {noformat}10001{noformat}||integer (int32)|
+|*errMsg*\\ \\ _optional_||错误描述||string|
+
+
+h3. ResponseVO {anchor:responsevo}
+响应对象
+
+
+||Name||Description||Schema||
+|*data*\\ \\ _optional_||响应数据||object|
+|*head*\\ \\ _optional_||响应头(错误码和错误原因)||[ResponseHeader|#responseheader]|
+|*success*\\ \\ _optional_|| ||boolean|
+
+
+h3. ResponseVO«IPage«SysoperationLogDto»» {anchor:980053bbe4734393ef5cc5e811c322ba}
+响应对象
+
+
+||Name||Description||Schema||
+|*data*\\ \\ _optional_||响应数据||[IPage«SysoperationLogDto»|#8915fe7f40da797760ddf74f7bc055a9]|
+|*head*\\ \\ _optional_||响应头(错误码和错误原因)||[ResponseHeader|#responseheader]|
+|*success*\\ \\ _optional_|| ||boolean|
+
+
+h3. ResponseVO«IPage«TemplateJobListDto»» {anchor:62ce835d4974b7f6592c19428de8d886}
+响应对象
+
+
+||Name||Description||Schema||
+|*data*\\ \\ _optional_||响应数据||[IPage«TemplateJobListDto»|#be0b924ddf91b154f730bae35f894d46]|
+|*head*\\ \\ _optional_||响应头(错误码和错误原因)||[ResponseHeader|#responseheader]|
+|*success*\\ \\ _optional_|| ||boolean|
+
+
+h3. ResponseVO«List«SyscodeDto»» {anchor:c5d71c225438047416a0d110d4810bef}
+响应对象
+
+
+||Name||Description||Schema||
+|*data*\\ \\ _optional_||响应数据||< [SyscodeDto|#syscodedto] > array|
+|*head*\\ \\ _optional_||响应头(错误码和错误原因)||[ResponseHeader|#responseheader]|
+|*success*\\ \\ _optional_|| ||boolean|
+
+
+h3. ResponseVO«List«事件列表»» {anchor:eeed278bbcc437a0a3998fba44716d4c}
+响应对象
+
+
+||Name||Description||Schema||
+|*data*\\ \\ _optional_||响应数据||< [事件列表|#38c1fc1217a3978f7ac5d55351e707cd] > array|
+|*head*\\ \\ _optional_||响应头(错误码和错误原因)||[ResponseHeader|#responseheader]|
+|*success*\\ \\ _optional_|| ||boolean|
+
+
+h3. ResponseVO«PageInfo«模板列表数据»» {anchor:2ad0d63d667567cdbb193371127730b1}
+响应对象
+
+
+||Name||Description||Schema||
+|*data*\\ \\ _optional_||响应数据||[PageInfo«模板列表数据»|#92666053b11f624ae7c7bdd3fcdcacc7]|
+|*head*\\ \\ _optional_||响应头(错误码和错误原因)||[ResponseHeader|#responseheader]|
+|*success*\\ \\ _optional_|| ||boolean|
+
+
+h3. ResponseVO«SyscodeEntity对象» {anchor:446ff16df954de5d703c8ba144361447}
+响应对象
+
+
+||Name||Description||Schema||
+|*data*\\ \\ _optional_||响应数据||[SyscodeEntity对象|#f58ad1e61d79fb39f221fd66a8f72067]|
+|*head*\\ \\ _optional_||响应头(错误码和错误原因)||[ResponseHeader|#responseheader]|
+|*success*\\ \\ _optional_|| ||boolean|
+
+
+h3. ResponseVO«TemplateJobDto» {anchor:75436d99e4ab48f55a93f6a8c1386f64}
+响应对象
+
+
+||Name||Description||Schema||
+|*data*\\ \\ _optional_||响应数据||[TemplateJobDto|#templatejobdto]|
+|*head*\\ \\ _optional_||响应头(错误码和错误原因)||[ResponseHeader|#responseheader]|
+|*success*\\ \\ _optional_|| ||boolean|
+
+
+h3. ResponseVO«TemplateJobListStatusGroupDto» {anchor:49c534bbb12dca96636edbd731728236}
+响应对象
+
+
+||Name||Description||Schema||
+|*data*\\ \\ _optional_||响应数据||[TemplateJobListStatusGroupDto|#templatejobliststatusgroupdto]|
+|*head*\\ \\ _optional_||响应头(错误码和错误原因)||[ResponseHeader|#responseheader]|
+|*success*\\ \\ _optional_|| ||boolean|
+
+
+h3. ResponseVO«TemplateNodeMaterialJobDto» {anchor:823db8402599fac3b104781be6c1c2d4}
+响应对象
+
+
+||Name||Description||Schema||
+|*data*\\ \\ _optional_||响应数据||[TemplateNodeMaterialJobDto|#templatenodematerialjobdto]|
+|*head*\\ \\ _optional_||响应头(错误码和错误原因)||[ResponseHeader|#responseheader]|
+|*success*\\ \\ _optional_|| ||boolean|
+
+
+h3. ResponseVO«string» {anchor:3174a67dfff8a5e1b0454eeae3de4ae9}
+响应对象
+
+
+||Name||Description||Schema||
+|*data*\\ \\ _optional_||响应数据||string|
+|*head*\\ \\ _optional_||响应头(错误码和错误原因)||[ResponseHeader|#responseheader]|
+|*success*\\ \\ _optional_|| ||boolean|
+
+
+h3. ResponseVO«模板详细信息» {anchor:0ae9cf837fc09c315a92dae13674234a}
+响应对象
+
+
+||Name||Description||Schema||
+|*data*\\ \\ _optional_||响应数据||[模板详细信息|#d334be08a891dc01c93e160bca9a6203]|
+|*head*\\ \\ _optional_||响应头(错误码和错误原因)||[ResponseHeader|#responseheader]|
+|*success*\\ \\ _optional_|| ||boolean|
+
+
+h3. SyscodeCriteria {anchor:syscodecriteria}
+
+||Name||Description||Schema||
+|*code*\\ \\ _optional_||编码编号;||string|
+|*createBegin*\\ \\ _optional_||创建开始时间||string (date-time)|
+|*createEnd*\\ \\ _optional_||创建结束时间||string (date-time)|
+|*currentPage*\\ \\ _optional_||当前页码\\ \\ *Example* : {noformat}1{noformat}||integer (int32)|
+|*id*\\ \\ _optional_||ID;||string|
+|*pageSize*\\ \\ _optional_||每页显示行数\\ \\ *Example* : {noformat}10{noformat}||integer (int32)|
+|*parentCode*\\ \\ _optional_||父级编码;没有父级编码的时候为0||string|
+|*sortField*\\ \\ _optional_||排序字段\\ \\ *Example* : {noformat}"createTime"{noformat}||string|
+|*sortOrder*\\ \\ _optional_||排序规则，默认倒序\\ \\ *Example* : {noformat}"descending"{noformat}||string|
+|*status*\\ \\ _optional_||状态;代码，0禁用1启用||integer (int32)|
+|*tenantId*\\ \\ _optional_||租户ID;||string|
+|*typeId*\\ \\ _optional_||类型ID;代码，1问卷分类2微信分类3短信分类4图文分类5模版分类 不同类型，采用的不同的一套分类，||integer (int32)|
+
+
+h3. SyscodeDto {anchor:syscodedto}
+
+||Name||Description||Schema||
+|*code*\\ \\ _optional_||编码编号;||string|
+|*createTime*\\ \\ _optional_||创建时间;||string (date-time)|
+|*id*\\ \\ _optional_||ID;||string|
+|*name*\\ \\ _optional_||编码名称;||string|
+|*parentCode*\\ \\ _optional_||父级编码;没有父级编码的时候为0||string|
+|*parentSyscode*\\ \\ _optional_||父级分类;||[SyscodeDto|#syscodedto]|
+|*sortNo*\\ \\ _optional_||排序号||integer (int32)|
+|*status*\\ \\ _optional_||状态;代码，0禁用1启用||integer (int32)|
+|*subSyscodeList*\\ \\ _optional_||子级分类列表;||< [SyscodeDto|#syscodedto] > array|
+|*typeId*\\ \\ _optional_||类型ID;代码，1问卷分类2微信分类3短信分类4图文分类5模版分类 不同类型，采用的不同的一套分类，||integer (int32)|
+
+
+h3. SyscodeEntity对象 {anchor:f58ad1e61d79fb39f221fd66a8f72067}
+随访-管理分类
+
+
+||Name||Description||Schema||
+|*code*\\ \\ _optional_||编码编号;||string|
+|*createTime*\\ \\ _optional_||创建时间;||string (date-time)|
+|*creatorId*\\ \\ _optional_||创建人ID;||string|
+|*creatorName*\\ \\ _optional_||创建人名称;||string|
+|*id*\\ \\ _optional_||ID;||string|
+|*isDelete*\\ \\ _optional_||是否删除;代码，0初始状态1删除||integer (int32)|
+|*modifyTime*\\ \\ _optional_||更新时间;||string (date-time)|
+|*modifyUserId*\\ \\ _optional_||修改人ID;||string|
+|*modifyUserName*\\ \\ _optional_||修改人名称;||string|
+|*name*\\ \\ _optional_||编码名称;||string|
+|*orgId*\\ \\ _optional_||机构ID;用户的org_id||string|
+|*parentCode*\\ \\ _optional_||父级编码;没有父级编码的时候为0||string|
+|*sortNo*\\ \\ _optional_||排序号||integer (int32)|
+|*status*\\ \\ _optional_||状态;代码，0禁用1启用||integer (int32)|
+|*tenantId*\\ \\ _optional_||租户ID;||string|
+|*typeId*\\ \\ _optional_||类型ID;代码，1问卷分类2微信分类3短信分类4图文分类5模版分类 不同类型，采用的不同的一套分类，||integer (int32)|
+
+
+h3. SysoperationLogDto {anchor:sysoperationlogdto}
+
+||Name||Description||Schema||
+|*bizId*\\ \\ _optional_||业务数据ID;业务数据ID||string|
+|*createTime*\\ \\ _optional_||创建时间;||string (date-time)|
+|*creatorName*\\ \\ _optional_||创建人名称;||string|
+|*id*\\ \\ _optional_||ID;||string|
+|*ip*\\ \\ _optional_||ip地址;||string|
+|*moduleName*\\ \\ _optional_||模块;||string|
+|*operation*\\ \\ _optional_||操作||string|
+
+
+h3. SysoperationLogEntityCriteria {anchor:sysoperationlogentitycriteria}
+
+||Name||Description||Schema||
+|*bizId*\\ \\ _optional_||业务数据ID;业务数据ID||string|
+|*createBegin*\\ \\ _optional_||创建开始时间||string (date-time)|
+|*createEnd*\\ \\ _optional_||创建结束时间||string (date-time)|
+|*currentPage*\\ \\ _optional_||当前页码\\ \\ *Example* : {noformat}1{noformat}||integer (int32)|
+|*id*\\ \\ _optional_||ID;||string|
+|*ip*\\ \\ _optional_||ip地址;||string|
+|*moduleName*\\ \\ _optional_||模块;||string|
+|*operation*\\ \\ _optional_||操作||string|
+|*orgId*\\ \\ _optional_||机构ID;用户的org_id||string|
+|*pageSize*\\ \\ _optional_||每页显示行数\\ \\ *Example* : {noformat}10{noformat}||integer (int32)|
+|*sortField*\\ \\ _optional_||排序字段\\ \\ *Example* : {noformat}"createTime"{noformat}||string|
+|*sortOrder*\\ \\ _optional_||排序规则，默认倒序\\ \\ *Example* : {noformat}"descending"{noformat}||string|
+|*tenantId*\\ \\ _optional_||租户ID;||string|
+
+
+h3. SysoperationLogEntity对象 {anchor:9800af9dd4b1945e162f2fd26df40788}
+随访-操作日志
+
+
+||Name||Description||Schema||
+|*bizId*\\ \\ _optional_||业务数据ID;业务数据ID||string|
+|*createTime*\\ \\ _optional_||创建时间;||string (date-time)|
+|*creatorId*\\ \\ _optional_||创建人ID;||string|
+|*creatorName*\\ \\ _optional_||创建人名称;||string|
+|*id*\\ \\ _optional_||ID;||string|
+|*ip*\\ \\ _optional_||ip地址;||string|
+|*isDelete*\\ \\ _optional_||是否删除;代码，0初始状态1删除||integer (int32)|
+|*moduleName*\\ \\ _optional_||模块;||string|
+|*operation*\\ \\ _optional_||操作||string|
+|*orgId*\\ \\ _optional_||机构ID;用户的org_id||string|
+|*tenantId*\\ \\ _optional_||租户ID;||string|
+
+
+h3. TemplateJobCreateCriteriaDto {anchor:templatejobcreatecriteriadto}
+
+||Name||Description||Schema||
+|*creatorId*\\ \\ _optional_||创建人ID;||string|
+|*creatorName*\\ \\ _optional_||创建人名称;||string|
+|*deptId*\\ \\ _optional_||责任科室;||string|
+|*deptName*\\ \\ _optional_||责任科室名称;||string|
+|*diagnosisTime*\\ \\ _optional_||事件发生时间;||string (date-time)|
+|*doctorId*\\ \\ _optional_||责任人;||string|
+|*doctorName*\\ \\ _optional_||责任人名称;||string|
+|*modifyUserId*\\ \\ _optional_||修改人ID;||string|
+|*modifyUserName*\\ \\ _optional_||修改人名称;||string|
+|*orgId*\\ \\ _optional_||机构ID;用户的org_id||string|
+|*orgName*\\ \\ _optional_||机构名字;用户的机构名字||string|
+|*patientAge*\\ \\ _optional_||年龄;年龄的月龄||integer (int64)|
+|*patientDeptIds*\\ \\ _optional_||科室;代码，可多选，逗号分隔||string|
+|*patientDeptNames*\\ \\ _optional_||科室名称;与代码一一对应，可多选，逗号分隔||string|
+|*patientDoctorAdviceIds*\\ \\ _optional_||医嘱;代码，可多选，逗号分隔||string|
+|*patientDoctorAdviceNames*\\ \\ _optional_||疾病名称;与代码一一对应，可多选，逗号分隔||string|
+|*patientGenderId*\\ \\ _optional_||性别;代码，0不限1男2女||integer (int32)|
+|*patientId*\\ \\ _optional_||病人编号;||string|
+|*patientMark*\\ \\ _optional_||病人随访任务标示（就诊编号，住院编号等）;用于确认触发事件节点的是否是存在的模版任务||string|
+|*patientName*\\ \\ _optional_||病人名字;||string|
+|*patientPhone*\\ \\ _optional_||病人电话;||string|
+|*patientSicknessIds*\\ \\ _optional_||疾病;代码，可多选，逗号分隔||string|
+|*patientSicknessNames*\\ \\ _optional_||疾病名称;与代码一一对应，可多选，逗号分隔||string|
+|*sysnodeId*\\ \\ _optional_||事件节点ID;fup_sysnode_fit的id||string|
+|*sysnodeMark*\\ \\ _optional_||事件节点标签;fup_sysnode_fit的mark||string|
+|*tenantId*\\ \\ _optional_||租户ID;||string|
+
+
+h3. TemplateJobDto {anchor:templatejobdto}
+
+||Name||Description||Schema||
+|*createTime*\\ \\ _optional_||创建时间;||string (date-time)|
+|*creatorId*\\ \\ _optional_||创建人ID;||string|
+|*creatorName*\\ \\ _optional_||创建人名称;||string|
+|*deptId*\\ \\ _optional_||责任科室;||string|
+|*deptName*\\ \\ _optional_||责任科室名称;||string|
+|*diagnosisTime*\\ \\ _optional_||诊断时间;||string (date-time)|
+|*doctorId*\\ \\ _optional_||责任人;||string|
+|*doctorName*\\ \\ _optional_||责任人名称;||string|
+|*id*\\ \\ _optional_||ID;||string|
+|*isDelete*\\ \\ _optional_||是否删除;代码，0初始状态1删除||integer (int32)|
+|*modifyTime*\\ \\ _optional_||更新时间;||string (date-time)|
+|*modifyUserId*\\ \\ _optional_||修改人ID;||string|
+|*modifyUserName*\\ \\ _optional_||修改人名称;||string|
+|*name*\\ \\ _optional_||名称;||string|
+|*nodeJobList*\\ \\ _optional_||模版任务下的一组阶段任务||< [TemplateNodeJobDto|#templatenodejobdto] > array|
+|*orgId*\\ \\ _optional_||机构ID;用户的org_id||string|
+|*orgName*\\ \\ _optional_||机构名字;用户的机构名字||string|
+|*patientAge*\\ \\ _optional_||年龄;年龄的毫秒数||integer (int64)|
+|*patientDeptIds*\\ \\ _optional_||科室;代码，可多选，逗号分隔||string|
+|*patientDeptNames*\\ \\ _optional_||科室名称;与代码一一对应，可多选，逗号分隔||string|
+|*patientDoctorAdviceIds*\\ \\ _optional_||医嘱;代码，可多选，逗号分隔||string|
+|*patientDoctorAdviceNames*\\ \\ _optional_||疾病名称;与代码一一对应，可多选，逗号分隔||string|
+|*patientGenderId*\\ \\ _optional_||性别;代码，0不限1男2女||integer (int32)|
+|*patientId*\\ \\ _optional_||病人编号;||string|
+|*patientMark*\\ \\ _optional_||病人随访任务标示（就诊编号，住院编号等）;用于确认触发事件节点的是否是存在的模版任务||string|
+|*patientName*\\ \\ _optional_||病人名字;||string|
+|*patientPhone*\\ \\ _optional_||病人电话;||string|
+|*patientSicknessIds*\\ \\ _optional_||疾病;代码，可多选，逗号分隔||string|
+|*patientSicknessNames*\\ \\ _optional_||疾病名称;与代码一一对应，可多选，逗号分隔||string|
+|*status*\\ \\ _optional_||状态;代码，1:待确认2:过期未确认3:执行中4:已完成5:已取消6:已终止||integer (int32)|
+|*templateId*\\ \\ _optional_||模版ID;fup_template的id||string|
+|*tenantId*\\ \\ _optional_||租户ID;||string|
+
+
+h3. TemplateJobIdCriteriaDto {anchor:templatejobidcriteriadto}
+
+||Name||Description||Schema||
+|*id*\\ \\ _optional_||ID;||string|
+
+
+h3. TemplateJobListCriteriaDto {anchor:templatejoblistcriteriadto}
+
+||Name||Description||Schema||
+|*currentPage*\\ \\ _optional_||当前页码\\ \\ *Example* : {noformat}1{noformat}||integer (int32)|
+|*deptId*\\ \\ _optional_||责任科室;代码，可多选，逗号分隔||string|
+|*doctorId*\\ \\ _optional_||责任人;||string|
+|*executeTypeId*\\ \\ _optional_||执行方式;代码0空1医护人员2患者 问卷的时候选择1医护人员2患者，自定义1医护人员，其他空||integer (int32)|
+|*isOrg*\\ \\ _optional_||是否是机构，true为机构，false为集团;不能为空||boolean|
+|*name*\\ \\ _optional_||名称;||string|
+|*orgId*\\ \\ _optional_||orgId||string|
+|*pageSize*\\ \\ _optional_||每页显示行数\\ \\ *Example* : {noformat}10{noformat}||integer (int32)|
+|*patientDeptIds*\\ \\ _optional_||科室;代码，作为查询条件单选||string|
+|*patientDoctorAdviceIds*\\ \\ _optional_||医嘱;代码，作为查询条件单选||string|
+|*patientId*\\ \\ _optional_||病人编号;||string|
+|*patientName*\\ \\ _optional_||病人名字;||string|
+|*patientSicknessIds*\\ \\ _optional_||疾病;代码，作为查询条件单选||string|
+|*sortField*\\ \\ _optional_||排序字段\\ \\ *Example* : {noformat}"createTime"{noformat}||string|
+|*sortOrder*\\ \\ _optional_||排序规则，默认倒序\\ \\ *Example* : {noformat}"descending"{noformat}||string|
+|*status*\\ \\ _optional_||状态;代码，1:待确认2:过期未确认3:执行中4:已完成5:已取消6:已终止||integer (int32)|
+
+
+h3. TemplateJobListDto {anchor:templatejoblistdto}
+
+||Name||Description||Schema||
+|*createTime*\\ \\ _optional_||创建时间;||string (date-time)|
+|*creatorId*\\ \\ _optional_||创建人ID;||string|
+|*creatorName*\\ \\ _optional_||创建人名称;||string|
+|*deptId*\\ \\ _optional_||责任科室;||string|
+|*deptName*\\ \\ _optional_||责任科室名称;||string|
+|*diagnosisTime*\\ \\ _optional_||诊断时间;||string (date-time)|
+|*doctorId*\\ \\ _optional_||责任人;||string|
+|*doctorName*\\ \\ _optional_||责任人名称;||string|
+|*id*\\ \\ _optional_||ID;||string|
+|*isDelete*\\ \\ _optional_||是否删除;代码，0初始状态1删除||integer (int32)|
+|*modifyTime*\\ \\ _optional_||更新时间;||string (date-time)|
+|*modifyUserId*\\ \\ _optional_||修改人ID;||string|
+|*modifyUserName*\\ \\ _optional_||修改人名称;||string|
+|*name*\\ \\ _optional_||名称;||string|
+|*orgId*\\ \\ _optional_||机构ID;用户的org_id||string|
+|*orgName*\\ \\ _optional_||机构名字;用户的机构名字||string|
+|*patientAge*\\ \\ _optional_||年龄;年龄的毫秒数||integer (int64)|
+|*patientDeptIds*\\ \\ _optional_||科室;代码，可多选，逗号分隔||string|
+|*patientDeptNames*\\ \\ _optional_||科室名称;与代码一一对应，可多选，逗号分隔||string|
+|*patientDoctorAdviceIds*\\ \\ _optional_||医嘱;代码，可多选，逗号分隔||string|
+|*patientDoctorAdviceNames*\\ \\ _optional_||疾病名称;与代码一一对应，可多选，逗号分隔||string|
+|*patientGenderId*\\ \\ _optional_||性别;代码，0不限1男2女||integer (int32)|
+|*patientId*\\ \\ _optional_||病人编号;||string|
+|*patientMark*\\ \\ _optional_||病人随访任务标示（就诊编号，住院编号等）;用于确认触发事件节点的是否是存在的模版任务||string|
+|*patientName*\\ \\ _optional_||病人名字;||string|
+|*patientPhone*\\ \\ _optional_||病人电话;||string|
+|*patientSicknessIds*\\ \\ _optional_||疾病;代码，可多选，逗号分隔||string|
+|*patientSicknessNames*\\ \\ _optional_||疾病名称;与代码一一对应，可多选，逗号分隔||string|
+|*status*\\ \\ _optional_||状态;代码，1:待确认2:过期未确认3:执行中4:已完成5:已取消6:已终止||integer (int32)|
+|*templateId*\\ \\ _optional_||模版ID;fup_template的id||string|
+|*tenantId*\\ \\ _optional_||租户ID;||string|
+
+
+h3. TemplateJobListStatusGroupDto {anchor:templatejobliststatusgroupdto}
+
+||Name||Description||Schema||
+|*allSum*\\ \\ _optional_||全部数量||integer (int32)|
+|*cancleSum*\\ \\ _optional_||已取消||integer (int32)|
+|*confirmSum*\\ \\ _optional_||待确认||integer (int32)|
+|*executingSum*\\ \\ _optional_||执行中||integer (int32)|
+|*expireConfirmSum*\\ \\ _optional_||过期未确认||integer (int32)|
+|*finishedSum*\\ \\ _optional_||已完成||integer (int32)|
+|*stopSum*\\ \\ _optional_||已终止||integer (int32)|
+
+
+h3. TemplateNodeJobDto {anchor:templatenodejobdto}
+
+||Name||Description||Schema||
+|*createTime*\\ \\ _optional_||创建时间;||string (date-time)|
+|*creatorId*\\ \\ _optional_||创建人ID;||string|
+|*creatorName*\\ \\ _optional_||创建人名称;||string|
+|*followUpTime*\\ \\ _optional_||随访时间;事件节点完成多久以后，时间间隔，存储毫秒数;为0时，表示立即执行，不为0表示延迟执行毫秒值||integer (int64)|
+|*id*\\ \\ _optional_||ID;||string|
+|*isDelete*\\ \\ _optional_||是否删除;代码，0初始状态1删除||integer (int32)|
+|*materialJobDtoList*\\ \\ _optional_||模版阶段任务下的一组素材任务||< [TemplateNodeMaterialJobDto|#templatenodematerialjobdto] > array|
+|*modifyTime*\\ \\ _optional_||更新时间;||string (date-time)|
+|*modifyUserId*\\ \\ _optional_||修改人ID;||string|
+|*modifyUserName*\\ \\ _optional_||修改人名称;||string|
+|*name*\\ \\ _optional_||名称;||string|
+|*orgId*\\ \\ _optional_||机构ID;用户的org_id||string|
+|*remindTime*\\ \\ _optional_||提醒时间;较完成时间提前多久，时间间隔，正数为提前负数为延后，存储毫秒数；execute_type是2的时候必填||integer (int64)|
+|*status*\\ \\ _optional_||状态;代码，0禁用1启用||integer (int32)|
+|*sysnodeId*\\ \\ _optional_||事件节点ID;fup_sysnode_fit的id||string|
+|*templateId*\\ \\ _optional_||模版ID;fup_template的id||string|
+|*templateJobId*\\ \\ _optional_||模版任务ID;fup_template_job的id||string|
+|*templateNodeId*\\ \\ _optional_||模板节点ID;fup_template_node的id||string|
+|*tenantId*\\ \\ _optional_||租户ID;||string|
+
+
+h3. TemplateNodeMaterialJobDto {anchor:templatenodematerialjobdto}
+
+||Name||Description||Schema||
+|*content*\\ \\ _optional_||内容;根据不同的素材分类生成的内容||string|
+|*createTime*\\ \\ _optional_||创建时间;||string (date-time)|
+|*creatorId*\\ \\ _optional_||创建人ID;||string|
+|*creatorName*\\ \\ _optional_||创建人名称;||string|
+|*executeRecord*\\ \\ _optional_||执行记录;JSON结构，执行人，执行时间，执行结果||string|
+|*executeResultId*\\ \\ _optional_||执行结果;代码，0失败1成功2执行中||integer (int32)|
+|*executeTime*\\ \\ _optional_||执行时间;调用消息平台的时间或者开始执行的时间||string (date-time)|
+|*executeTypeId*\\ \\ _optional_||执行方式;代码0空1医护人员2患者 问卷的时候选择1医护人员2患者，自定义1医护人员，其他空||integer (int32)|
+|*id*\\ \\ _optional_||ID;||string|
+|*isDelete*\\ \\ _optional_||是否删除;代码，0初始状态1删除||integer (int32)|
+|*materialCategoryId*\\ \\ _optional_||素材分类;1问卷2微信3短信4图文5自定义||integer (int32)|
+|*materialId*\\ \\ _optional_||素材id;素材子表的ID||string|
+|*modifyTime*\\ \\ _optional_||更新时间;||string (date-time)|
+|*modifyUserId*\\ \\ _optional_||修改人ID;||string|
+|*modifyUserName*\\ \\ _optional_||修改人名称;||string|
+|*name*\\ \\ _optional_||名称;||string|
+|*orgId*\\ \\ _optional_||机构ID;用户的org_id||string|
+|*sendResult*\\ \\ _optional_||发送结果;调用第三方平台后更新，或者主动设置||string|
+|*sendResultMark*\\ \\ _optional_||消息平台查询发送结果标示;调用第三方平台后更新，或者主动设置||string|
+|*sendTime*\\ \\ _optional_||发送时间;||string (date-time)|
+|*sendTypeId*\\ \\ _optional_||发送方式;调用消息平台后更新，或者主动设置||string|
+|*sortNo*\\ \\ _optional_||排序号||integer (int32)|
+|*status*\\ \\ _optional_||状态;代码，1待执行2已过期3执行中4已完成5已取消||integer (int32)|
+|*templateId*\\ \\ _optional_||模版ID;fup_template的id||string|
+|*templateJobId*\\ \\ _optional_||模版任务ID;fup_template_job的id||string|
+|*templateNodeId*\\ \\ _optional_||模板节点ID;fup_template_node的id||string|
+|*templateNodeJobId*\\ \\ _optional_||阶段任务ID;fup_template_node_job的id||string|
+|*tenantId*\\ \\ _optional_||租户ID;||string|
+|*typeId*\\ \\ _optional_||任务类型;1提醒2执行 只有执行方式execute_type_id是医护人员的并且有提醒时间的阶段任务中的素材任务才会生成两个待执行的任务，一个用来提醒，一个用来执行||integer (int32)|
+
+
+h3. TemplateNodeMaterialJobExecuteCriteriaDto {anchor:templatenodematerialjobexecutecriteriadto}
+
+||Name||Description||Schema||
+|*executeRecord*\\ \\ _optional_||执行过程的记录（保存多次的情况是多条）;JSON结构，执行人 executeName，执行时间 executeTime，执行结果 executeContent||string|
+|*id*\\ \\ _optional_||ID;||string|
+
+
+h3. TemplateNodeMaterialJobIdCriteriaDto {anchor:templatenodematerialjobidcriteriadto}
+
+||Name||Description||Schema||
+|*id*\\ \\ _optional_||ID;||string|
+
+
+h3. TemplateOperationDto {anchor:templateoperationdto}
+
+||Name||Description||Schema||
+|*id*\\ \\ _optional_||模板ID||string|
+
+
+h3. 事件列表 {anchor:38c1fc1217a3978f7ac5d55351e707cd}
+
+||Name||Description||Schema||
+|*id*\\ \\ _optional_||ID;||string|
+|*mark*\\ \\ _optional_||标示;||string|
+|*name*\\ \\ _optional_||名称;||string|
+|*type*\\ \\ _optional_||类型;代码，0正向 1逆向||integer (int32)|
+
+
+h3. 模板列表数据 {anchor:eeed802c2084e85f07560ceeaf9bcdda}
+
+||Name||Description||Schema||
+|*categoryId*\\ \\ _optional_||管理分类;代码，单选||string|
+|*createTime*\\ \\ _optional_||创建时间;||string (date-time)|
+|*creatorName*\\ \\ _optional_||创建人||string|
+|*description*\\ \\ _optional_||模版说明;||string|
+|*id*\\ \\ _optional_||ID;||string|
+|*jobCreateTypeId*\\ \\ _optional_||任务生成方式;代码，0系统自动1手动确认\\ \\ *Example* : {noformat}1{noformat}||integer (int32)|
+|*name*\\ \\ _optional_||名称||string|
+|*orgName*\\ \\ _optional_||创建机构||string|
+|*status*\\ \\ _optional_||状态;代码，0禁用1启用\\ \\ *Example* : {noformat}1{noformat}||integer (int32)|
+
+
+h3. 模板基本信息 {anchor:8805aabaaa5d948cb77edbcc5b88e54f}
+
+||Name||Description||Schema||
+|*ageMax*\\ \\ _optional_||最大年龄;年龄转换为月份||integer (int64)|
+|*ageMin*\\ \\ _optional_||最小年龄;年龄转换为月份||integer (int64)|
+|*categoryId*\\ \\ _optional_||模板分类ID||string|
+|*deptIsAll*\\ \\ _optional_||科室是否为全选||boolean|
+|*deptList*\\ \\ _optional_||科室;id，可多选，逗号分隔||< [ChooseItem|#chooseitem] > array|
+|*description*\\ \\ _optional_||模版说明;||string|
+|*diagnosisIsAll*\\ \\ _optional_||诊断是否未选择(未选择等价于全选)||boolean|
+|*diagnosisList*\\ \\ _optional_||诊断;id，可多选，逗号分隔||< [ChooseItem|#chooseitem] > array|
+|*doctorAdviceIsAll*\\ \\ _optional_||医嘱是否未选择(未选择等价于全选)||boolean|
+|*doctorAdviceList*\\ \\ _optional_||医嘱;id，可多选，逗号分隔||< [ChooseItem|#chooseitem] > array|
+|*genderId*\\ \\ _optional_||性别;代码，0不限1男2女||integer (int32)|
+|*isOrg*\\ \\ _optional_||机构工作站还是集团工作站,如果是在集团工作站新建和编辑，该值为false，如果在机构工作站新建编辑，该值为true||boolean|
+|*jobCreateTypeId*\\ \\ _optional_||任务生成方式;代码，0系统自动1手动确认||integer (int32)|
+|*name*\\ \\ _optional_||名称;||string|
+|*status*\\ \\ _optional_||状态;代码，0禁用1启用||integer (int32)|
+
+
+h3. 模板查询条件 {anchor:5b9feb7db124088e8160d26f28165186}
+
+||Name||Description||Schema||
+|*categoryId*\\ \\ _optional_||管理分类;代码，单选||string|
+|*createBegin*\\ \\ _optional_||创建开始时间,格式为 yyyy-MM-dd||string|
+|*createEnd*\\ \\ _optional_||创建结束时间,格式为 yyyy-MM-dd||string|
+|*creatorName*\\ \\ _optional_||创建人||string|
+|*currentPage*\\ \\ _optional_||当前页码\\ \\ *Example* : {noformat}1{noformat}||integer (int32)|
+|*deptId*\\ \\ _optional_||适用科室Id||string|
+|*jobCreateTypeId*\\ \\ _optional_||任务生成方式;代码，0系统自动1手动确认\\ \\ *Example* : {noformat}1{noformat}||integer (int32)|
+|*orgId*\\ \\ _optional_||创建机构Id||string|
+|*pageSize*\\ \\ _optional_||每页显示行数\\ \\ *Example* : {noformat}10{noformat}||integer (int32)|
+|*sortField*\\ \\ _optional_||排序字段\\ \\ *Example* : {noformat}"createTime"{noformat}||string|
+|*sortOrder*\\ \\ _optional_||排序规则，默认倒序\\ \\ *Example* : {noformat}"descending"{noformat}||string|
+|*status*\\ \\ _optional_||状态;代码，0禁用1启用\\ \\ *Example* : {noformat}1{noformat}||integer (int32)|
+|*templateName*\\ \\ _optional_||模板名称||string|
+
+
+h3. 模板详细信息 {anchor:d334be08a891dc01c93e160bca9a6203}
+
+||Name||Description||Schema||
+|*baseInfo*\\ \\ _optional_||模板基本信息||[模板基本信息|#8805aabaaa5d948cb77edbcc5b88e54f]|
+|*id*\\ \\ _optional_||模板ID,新建时为空，编辑时必填||string|
+|*nodeInfoList*\\ \\ _optional_||阶段列表信息||< [模板阶段信息|#4c21e2b33a2a54222ca06a8fc7b04f34] > array|
+
+
+h3. 模板阶段信息 {anchor:4c21e2b33a2a54222ca06a8fc7b04f34}
+
+||Name||Description||Schema||
+|*followUpTime*\\ \\ _optional_||随访时间;事件节点完成多久以后，时间间隔，存储毫秒数;为0时，表示立即执行，不为0表示延迟执行毫秒值||integer (int64)|
+|*id*\\ \\ _optional_||阶段ID||string|
+|*remindTime*\\ \\ _optional_||提醒时间;较完成时间提前多久，时间间隔，存储毫秒数||integer (int64)|
+|*sysnodeId*\\ \\ _optional_||事件节点ID||string|
+|*templateNodeMaterialList*\\ \\ _optional_||模板阶段下素材任务列表信息||< [素材任务信息|#6c28b6cb965b477a26097c2a793c96bf] > array|
+
+
+h3. 素材任务信息 {anchor:6c28b6cb965b477a26097c2a793c96bf}
+
+||Name||Description||Schema||
+|*content*\\ \\ _optional_||内容;||string|
+|*id*\\ \\ _optional_||模板素材任务ID||string|
+|*jobTypeId*\\ \\ _optional_||任务类型ID;当前固定为1，表示事件提醒\\ \\ *Example* : {noformat}"1"{noformat}||string|
+|*materialCategoryId*\\ \\ _optional_||素材分类;1问卷2微信3短信4图文5自定义,当前只有5\\ \\ *Example* : {noformat}5{noformat}||integer (int32)|
+|*name*\\ \\ _optional_||名称;||string|
+|*templateNodeId*\\ \\ _optional_||模板节点ID||string|
+
+
+
