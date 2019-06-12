@@ -45,6 +45,10 @@ public class Test {
 
     public static void main(String[] args) throws ParseException, InterruptedException, IOException {
 
+        //输出系统换行符
+        String lineSeparator = System.lineSeparator();
+        System.out.println(lineSeparator);
+
 //        TestRun testRun = new TestRun();
 //        testRun.start();
 //
