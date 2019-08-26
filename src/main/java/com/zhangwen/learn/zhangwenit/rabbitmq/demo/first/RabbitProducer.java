@@ -50,11 +50,11 @@ public class RabbitProducer {
     }
 
     public static void main(String[] args) throws Exception {
-//        firstDemo();
+        firstDemo();
 //        exchangeToExchangeDemo();
 //        queueBind();
 //        publishNoQueueMsg();
-        queueDelete("queue-demo");
+//        queueDelete("queue-demo");
     }
 
     public static void exchangeToExchangeDemo() throws Exception {
