@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.VarHandle;
 import java.text.ParseException;
@@ -26,8 +27,9 @@ import java.util.stream.Stream;
  * @Date 2019/1/9 5:11 PM
  * @Version 1.0
  **/
-public class Test {
+public class Test implements Serializable {
 
+    private static final long serialVersionUID = 2281034720484051974L;
     private int count;
 
     private static final VarHandle COUNT;
@@ -227,4 +229,5 @@ public class Test {
             logger.error("start end ............");
         }
     }
+
 }

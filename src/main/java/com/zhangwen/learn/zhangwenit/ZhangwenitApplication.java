@@ -2,6 +2,9 @@ package com.zhangwen.learn.zhangwenit;
 
 import com.zhangwen.learn.zhangwenit.api.merchant.dto.DemoDto;
 import com.zhangwen.learn.zhangwenit.api.system.entity.User;
+import com.zhangwen.learn.zhangwenit.common.dto.ResponseVO;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -39,9 +42,17 @@ public class ZhangwenitApplication {
         return user;
     }
 
-    @PostMapping("/test")
-    public Object user(@RequestBody DemoDto demoDto) {
-        System.out.println(demoDto);
-        return demoDto;
+    @Value("http://www.${feign.thcUrl}")
+    private String host;
+
+    @Value("#{'http://www' + '${feign.thcUrl}'.substring('${feign.thcUrl}'.indexOf('.'))}")
+    private String host2;
+
+
+    @GetMapping("/testValue")
+    public Object user() {
+        System.out.println(host);
+        System.out.println(host2);
+        return ResponseVO.buildSuccess();
     }
 }
