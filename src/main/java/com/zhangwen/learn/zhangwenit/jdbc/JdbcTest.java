@@ -18,7 +18,9 @@ public class JdbcTest {
 
     public static void main(String[] args) throws Exception {
 
-        execTest();
+//        execTest();
+//        execTest2();
+        databaseMetadata();
     }
 
     /**
@@ -26,7 +28,7 @@ public class JdbcTest {
      */
     public static void execTest() throws ClassNotFoundException, SQLException, IllegalAccessException, InstantiationException, NoSuchFieldException, NoSuchMethodException, InvocationTargetException {
         //加载驱动类
-        Class.forName("com.mysql.jdbc.Driver");
+//        Class.forName("com.mysql.jdbc.Driver");
         //获取连接
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/zhangwenit", "root", "123456");
         //创建语句集
@@ -61,5 +63,57 @@ public class JdbcTest {
         prepareStatement.close();
         connection.close();
 
+    }
+
+    /**
+     * 自动关闭资源模式
+     *
+     * @throws SQLException
+     */
+    public static void execTest2() throws SQLException {
+        //可以多个驱动，已:分隔
+        System.setProperty("jdbc.drivers", "com.mysql.jdbc.Driver");
+        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/zhangwenit", "root", "123456")) {
+            int i = 1;
+            try (Statement statement = connection.createStatement()) {
+                String sql = "select * from test_transaction";
+                try (ResultSet resultSet = statement.executeQuery(sql)) {
+                    List<TestTransaction> list = new ArrayList<>();
+                    int type = resultSet.getType();
+                    int concurrency = resultSet.getConcurrency();
+                    while (resultSet.next()) {
+                        if(i == 2){
+                            //结果集向前滚动
+                            resultSet.previous();
+                        }
+                        TestTransaction o = new TestTransaction();
+                        o.setId(resultSet.getLong("id"));
+                        o.setName(resultSet.getString("name"));
+                        list.add(o);
+                        i++;
+                    }
+
+                    System.out.println(list);
+                }
+            }
+        }
+    }
+
+    public static void databaseMetadata(){
+        try (Connection connection = connection()) {
+            DatabaseMetaData metaData = connection.getMetaData();
+            System.out.println(metaData);
+        } catch (SQLException e) {
+        }
+    }
+
+
+    public static Connection connection(){
+        try {
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/zhangwenit", "root", "123456");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException("数据库链接失败");
+        }
     }
 }

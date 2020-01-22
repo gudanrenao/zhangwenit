@@ -3,10 +3,7 @@ package com.zhangwen.learn.zhangwenit.reflect;
 import com.google.common.collect.Lists;
 
 import java.lang.reflect.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @Description
@@ -64,6 +61,7 @@ public class FirstDemo {
 //        Class cl = ArrayList.class;
         Class cl = FirstDemo.class;
         Class superclass = cl.getSuperclass();
+        System.out.println(Object.class.equals(superclass));
         Class superclass1 = superclass.getSuperclass();
         System.out.println(superclass1);
     }
@@ -307,9 +305,11 @@ public class FirstDemo {
     public static void main(String[] args) throws Exception {
 //        getClassByForName();
 //        getClassName();
-//        getModifiers();
+        System.out.println("======================= getModifiers =============================");
+        getModifiers();
 //        getPackage();
-//        getSuperClass();
+        System.out.println("======================= getSuperClass =============================");
+        getSuperClass();
 //        getInterfaces();
 //        getConstructor();
 //        getConstructorParams();
@@ -322,7 +322,7 @@ public class FirstDemo {
 //        getDeclareFields();
 //        getReturnTypeWithGeneric();
 //        getGenericParam();
-        getGenericField();
+//        getGenericField();
     }
 
     private final static class PrivateClassDemo extends SuperClass {
