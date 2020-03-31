@@ -72,6 +72,10 @@ README.md语法
 
  ![测试图片](https://cdn.lepluslife.com/lepluslife/lepluslife.jpg)
  
+ ### 颜色
+ $\color{red}{这是红色}$
+ $\color{red}{talk}$
+ 
  idea相关
  ---------
  ### 配置相关
