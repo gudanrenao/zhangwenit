@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
  **/
 public class ConnectionDriver {
 
-    private static class Connectionhandler implements InvocationHandler {
+    private static class ConnectionHandler implements InvocationHandler {
 
         @Override
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
@@ -26,6 +26,6 @@ public class ConnectionDriver {
     }
 
     public static Connection createConnection() {
-        return (Connection) Proxy.newProxyInstance(ConnectionDriver.class.getClassLoader(), new Class[]{Connection.class}, new Connectionhandler());
+        return (Connection) Proxy.newProxyInstance(ConnectionDriver.class.getClassLoader(), new Class[]{Connection.class}, new ConnectionHandler());
     }
 }
