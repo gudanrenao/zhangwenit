@@ -57,6 +57,12 @@ public class PipedStreamDemo {
                 }
             } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+                try {
+                    pipedReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
         }

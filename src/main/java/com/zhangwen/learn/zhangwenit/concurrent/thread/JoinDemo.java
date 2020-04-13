@@ -19,7 +19,7 @@ public class JoinDemo {
             thread.start();
             previous = thread;
         }
-        SleepUtils.second(3);
+        SleepUtils.second(1);
         System.out.println(Thread.currentThread() + ".... terminate  end");
     }
 

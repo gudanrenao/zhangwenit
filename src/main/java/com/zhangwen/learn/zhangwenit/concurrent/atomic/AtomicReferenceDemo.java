@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * @Description AtomicReference cas count demo  todo:有问题
+ * @Description AtomicReference cas count demo
  * @Author ZWen
  * @Date 2019/4/2 7:22 PM
  * @Version 1.0
@@ -14,16 +14,16 @@ import java.util.concurrent.atomic.AtomicReference;
 public class AtomicReferenceDemo {
 
     public static void main(String[] args) {
-        CountDemo countDemo = new CountDemo();
-        AtomicReference<CountDemo> atomicReference = new AtomicReference<>(countDemo);
+        AtomicReference<CountDemo> atomicReference = new AtomicReference<>(new CountDemo());
         long start = System.currentTimeMillis();
         List<Thread> threadList = new ArrayList<>(100);
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             Thread thread = new Thread(() -> {
-                for (int j = 0; j < 10; j++) {
+                for (int j = 0; j < 100; j++) {
                     for (; ; ) {
-                        CountDemo demo = new CountDemo(atomicReference.get().getCount1() + 1, atomicReference.get().getCount2() + 2);
-                        boolean set = atomicReference.compareAndSet(countDemo, demo);
+                        CountDemo oldDemo = atomicReference.get();
+                        CountDemo newDemo = new CountDemo(oldDemo.getCount1() + 1, oldDemo.getCount2() + 2);
+                        boolean set = atomicReference.compareAndSet(oldDemo, newDemo);
                         if (set) {
                             break;
                         }
@@ -45,8 +45,8 @@ public class AtomicReferenceDemo {
             }
         }
 
-        System.out.println("count1 = " + countDemo.getCount1());
-        System.out.println("count2 = " + countDemo.getCount2());
+        System.out.println("count1 = " + atomicReference.get().getCount1());
+        System.out.println("count2 = " + atomicReference.get().getCount2());
         System.out.println("use time = " + (System.currentTimeMillis() - start));
     }
 
