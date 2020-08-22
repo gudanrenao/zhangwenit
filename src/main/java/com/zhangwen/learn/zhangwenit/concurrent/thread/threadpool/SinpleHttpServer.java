@@ -45,7 +45,6 @@ public class SinpleHttpServer {
 
         @Override
         public void run() {
-            //todo:doSomeThing
             BufferedReader reader = null;
             InputStream in = null;
             PrintWriter out = null;

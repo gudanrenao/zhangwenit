@@ -9,10 +9,7 @@ import java.io.Serializable;
 import java.lang.invoke.MethodHandles;
 import java.lang.invoke.VarHandle;
 import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
@@ -48,8 +45,8 @@ public class Test implements Serializable {
     public static void main(String[] args) throws ParseException, InterruptedException, IOException {
 
         //输出系统换行符
-        String lineSeparator = System.lineSeparator();
-        System.out.println(lineSeparator);
+//        String lineSeparator = System.lineSeparator();
+//        System.out.println(lineSeparator);
 
 //        TestRun testRun = new TestRun();
 //        testRun.start();
@@ -91,11 +88,11 @@ public class Test implements Serializable {
 //        System.out.println(concurrentHashMap.get("1"));
 //        System.out.println(concurrentHashMap.size());
 
-        int COUNT_BITS = Integer.SIZE - 3;
+//        int COUNT_BITS = Integer.SIZE - 3;
 //        int COUNT_MASK = (1 << COUNT_BITS) - 1;
 //        System.out.println(8 & COUNT_MASK);
 
-        int a = 2 << COUNT_BITS;
+//        int a = 2 << COUNT_BITS;
 //
 //
 //        CopyOnWriteArrayList<TempOpenId> list = new CopyOnWriteArrayList<>();
@@ -157,40 +154,40 @@ public class Test implements Serializable {
 
 
 //        System.out.println(null + "121212");
-        System.out.println(11 & 3);
-
-
-        AtomicInteger atomicInteger = new AtomicInteger(100000);
-        List<Integer> list1 = Stream.generate(atomicInteger::getAndDecrement).limit(100000).collect(Collectors.toList());
-        atomicInteger.set(1);
-        List<Integer> list2 = Stream.generate(atomicInteger::getAndIncrement).limit(1000).collect(Collectors.toList());
-
-        List<Integer> result = new ArrayList<>();
-        long begin = System.currentTimeMillis();
-        for (Integer i1 : list1) {
-            for (Integer i2 : list2) {
-                if (i2.equals(i1)) {
-                    result.add(i1);
-                    break;
-                }
-            }
-        }
-        System.out.println("use time is " + (System.currentTimeMillis() - begin));
-        System.out.println("result size is " + result.size());
-        System.out.println("-----------------------------------");
-        List<Integer> result2 = new ArrayList<>();
-        long begin2 = System.currentTimeMillis();
-        Map<Integer, Integer> map = new HashMap<>();
-        for (Integer i2 : list2) {
-            map.put(i2, i2);
-        }
-        for (Integer i1 : list1) {
-            if (map.containsKey(i1)) {
-                result2.add(i1);
-            }
-        }
-        System.out.println("use time is " + (System.currentTimeMillis() - begin2));
-        System.out.println("result2 size is " + result2.size());
+//        System.out.println(11 & 3);
+//
+//
+//        AtomicInteger atomicInteger = new AtomicInteger(100000);
+//        List<Integer> list1 = Stream.generate(atomicInteger::getAndDecrement).limit(100000).collect(Collectors.toList());
+//        atomicInteger.set(1);
+//        List<Integer> list2 = Stream.generate(atomicInteger::getAndIncrement).limit(1000).collect(Collectors.toList());
+//
+//        List<Integer> result = new ArrayList<>();
+//        long begin = System.currentTimeMillis();
+//        for (Integer i1 : list1) {
+//            for (Integer i2 : list2) {
+//                if (i2.equals(i1)) {
+//                    result.add(i1);
+//                    break;
+//                }
+//            }
+//        }
+//        System.out.println("use time is " + (System.currentTimeMillis() - begin));
+//        System.out.println("result size is " + result.size());
+//        System.out.println("-----------------------------------");
+//        List<Integer> result2 = new ArrayList<>();
+//        long begin2 = System.currentTimeMillis();
+//        Map<Integer, Integer> map = new HashMap<>();
+//        for (Integer i2 : list2) {
+//            map.put(i2, i2);
+//        }
+//        for (Integer i1 : list1) {
+//            if (map.containsKey(i1)) {
+//                result2.add(i1);
+//            }
+//        }
+//        System.out.println("use time is " + (System.currentTimeMillis() - begin2));
+//        System.out.println("result2 size is " + result2.size());
     }
 
 
