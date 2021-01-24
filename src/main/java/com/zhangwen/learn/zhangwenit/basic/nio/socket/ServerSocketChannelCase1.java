@@ -39,6 +39,7 @@ public class ServerSocketChannelCase1 {
         //将ServerSocketChannel的accept事件注册到Selector
         serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
 
+
         while (true) {
 
             while (selector.select(1000) == 0) {
